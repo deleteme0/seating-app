@@ -3,7 +3,7 @@
 export default function About() {
     return (
         <div>
-            This is login
+            This is log
         </div>
     )
 }
