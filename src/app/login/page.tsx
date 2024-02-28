@@ -7,10 +7,12 @@ export default function About() {
   //const history = useHistory();
   const [username,setUsername] = useState("");
   const [password,setPassword] = useState("");
+  
   // Initialize useHistory hook
   
   const handleClick = () => {
     console.log(username,password)
+    // username = "abv";
     //history.push('/selectpage'); // Redirect to the selectpage route
   }
 
@@ -25,9 +27,10 @@ export default function About() {
         <div className='login-form-input'>
           <label>Password:</label>
         <input type="password" onChange={event=>{setPassword(event.target.value)}} value={password} size={11}/>
+        {/* <input type="text" name="room" id="room" value={room} onChange={event=>{setRoom(event.target.value)}} /> */}
         </div>
         <div className='login-form-button'>
-          <button type="submit" onClick={handleClick}>Login</button>
+          <button type="submit" onClick={handleClick}><b>Login</b></button>
         </div>
       </div>
     </div>
