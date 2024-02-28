@@ -22,7 +22,7 @@ export default function About() {
       <input type="password" size={11}/>
     </div>
     <div className='login-form-button'>
-      <button type="submit" onClick={handleClick()}>Login</button>
+      <button type="submit" onClick={handleClick}>Login</button>
     </div>
   </div>
 </body>
