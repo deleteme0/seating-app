@@ -4,6 +4,8 @@ body {
   padding: 0;
   height: 100vh; /* Set height of body to full viewport height */
   display: flex;
+  color: black;
+  background-color: azure;
   justify-content: center; /* Center content horizontally */
   align-items: center; /* Center content vertically */
 }
@@ -29,14 +31,18 @@ body {
 .login-form-input {
   margin-bottom: 10px;
   padding: 8px;
-  border: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid #ccc; */
   border-radius: 3px;
+  /* border: 1px solid black; */
 }
+
 
 .login-form-button {
   padding: 10px 15px;
   background-color: #007bff;
-  color: #fff;
+  color:black;
   border: none;
   border-radius: 3px;
   cursor: pointer;
@@ -45,4 +51,10 @@ body {
 
 .login-form-button:hover {
   background-color: #0056b3;
+}
+
+input{
+  border: 1px solid black;
+  border-radius: 3px;
+  size:3;
 }

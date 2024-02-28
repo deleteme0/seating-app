@@ -1,10 +1,11 @@
 
 import './loginpage.css';
+
 export default function About() {
 
   const handleClick = () =>{
     <div>
-      <a href="selectpage.tsx">Login</a>
+      <a href="selectpage.tsx"></a>
     </div>
   }
 
@@ -14,11 +15,11 @@ export default function About() {
     <h2 className='login-header'>Welcome</h2>
     <div className='login-form-input'>
       <label>Username:</label>
-      <input type="text" />
+      <input type="text" size={11}/>
     </div>
     <div className='login-form-input'>
       <label>Password:</label>
-      <input type="password" />
+      <input type="password" size={11}/>
     </div>
     <div className='login-form-button'>
       <button type="submit" onClick={handleClick()}>Login</button>
