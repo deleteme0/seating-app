@@ -2,8 +2,7 @@
 'use client';
 import { useState } from "react";
 
-
-export default function About() {
+function Room() {
 
     const [room,setRoom]=useState("");
     
@@ -17,3 +16,5 @@ export default function About() {
         </div>
     );
 }
+
+export default Room;
