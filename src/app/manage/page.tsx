@@ -1,7 +1,7 @@
 
 'use client';
 import { useState } from "react";
-import '../login/loginpage.css';
+// import '../login/loginpage.css';
 import './room.css';
 function Room() {
 
@@ -27,14 +27,17 @@ function Room() {
                 <label>Rooms:</label>
                 <input type="text" name="room" id="room" value={room} onChange={event=>{setRoom(event.target.value)}} />
             </div>
-            <div className="seat">
+            <div className="dseat">
                 <label>Double Seat:</label>
                 <input type="text" name="Double" id="double" value={ds} onChange={event=>{setds(event.target.value)}} />
+            </div>
+            <div className="sseat">
                 <label>Single Seat:</label>
                 <input type="text" name="Single" id="single" value={ss} onChange={event=>{setss(event.target.value)}} />
             </div>
             <button onClick={handleClick}>Submit</button>
         </div>
+        <hr/>
         </div>
     );
 }
