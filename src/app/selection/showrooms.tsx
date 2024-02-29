@@ -16,7 +16,7 @@ export default function ShowRooms({rooms,setRooms}:{rooms:any,setRooms:any}) {
                 {rooms.map(
                     (each:any,i:any)=>(
                         <label key={"radiol"+each.roomno} hidden={each.use == false}>
-                        <input type="radio" name="selectedRoom" key={"radio"+each.roomno} id={each} onChange={handlechange} value={each.roomno}/>
+                        <input type="radio" name="selectedRoom" key={"radio"+each.roomno} id={each} onChange={handlechange} value={i}/>
                         {each.roomno}</label>
                     )
                 )}

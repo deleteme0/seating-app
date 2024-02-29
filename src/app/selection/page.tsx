@@ -14,7 +14,17 @@ export default function Selection() {
             singletaken:4,
             doublefull:10,
             doublehalf:3,
-            doubletaken:6
+            doubletaken:6,
+            benches:[
+                [0],
+                [0],
+                [0],
+                [0,0],
+                [0,0],
+                [0,0],
+                [0,0],
+                [0,0],
+            ]
         },
         {
             roomno: 105,
@@ -23,7 +33,17 @@ export default function Selection() {
             singletaken:4,
             doublefull:10,
             doublehalf:3,
-            doubletaken:6
+            doubletaken:6,
+            benches:[
+                [0],
+                [0],
+                [0],
+                [0,0],
+                [0,0],
+                [0,0],
+                [0,0],
+                [0,0],
+            ]
         },
         {
             roomno: 107,
@@ -32,7 +52,17 @@ export default function Selection() {
             singletaken:4,
             doublefull:10,
             doublehalf:3,
-            doubletaken:6
+            doubletaken:6,
+            benches:[
+                [0],
+                [0],
+                [0],
+                [0,0],
+                [0,0],
+                [0,0],
+                [0,0],
+                [0,0],
+            ]
         },
         {
             roomno: 108,
@@ -41,7 +71,17 @@ export default function Selection() {
             singletaken:4,
             doublefull:10,
             doublehalf:3,
-            doubletaken:6
+            doubletaken:6,
+            benches:[
+                [0],
+                [0],
+                [0],
+                [0,0],
+                [0,0],
+                [0,0],
+                [0,0],
+                [0,0],
+            ]
         },
         ]
     )
