@@ -1,18 +1,33 @@
-.container
+/* .container
 {
     display: flex;
     flex-direction: column;
     padding: 10px;
+    justify-content: center;
+    color: aquamarine;
+    position: relative;
+    height: 300px;
 }
 h1{
     font-size: 50px;
 }
 
-button{
-    border: 2px solid white;
-    border-radius: 10px;
-    width: 100px;
-}
+.login-form-button {
+
+    padding: 10px 15px;
+    /* background-color: #007bff;
+    color:aquamarine;
+    border: 1px solid aquamarine;
+    /* border: none; 
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 10px;
+    text-align: center;
+    width: 200px;
+    position: absolute;
+    left: 150px;
+    top: 85%;
+  }
 .seat
 {
     display: flex;
@@ -20,12 +35,87 @@ button{
     width: 200px;
 }
 
-.body
+.room-allocate
 {
+    display: flex;
+    justify-content: center;
     align-items: center;
     text-align: center;
-    border: 1px solid white;
+    border: 1px solid aquamarine;
 }
 hr{
     color:red;
 }
+
+.room,.dseat,.sseat{
+    width: 400px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+input{
+    border-radius: 5px;
+}
+
+  */
+
+  .room-allocate {
+    display: flex;
+    color: black;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure the div takes up the full viewport height */
+    background-color: #f0f0f0; /* Set a nice background color */
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    width:fit-content;
+    text-align: center; /* Align contents to the center */
+    background-color: #ffffff; /* Optional: Add a white background to the container */
+    padding: 20px;
+    border-radius: 10px; /* Optional: Add rounded corners to the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
+  }
+  
+  .room h1 {
+    margin-bottom: 20px; /* Optional: Add some space below the heading */
+  }
+  
+  .room,
+  .dseat,
+  .sseat {
+    margin-bottom: 15px; /* Optional: Add space between input sections */
+  }
+  
+  input[type="text"] {
+    width: 100%; /* Make inputs fill the width of their container */
+    padding: 10px; /* Add some padding for better appearance */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+  }
+  
+  .login-form-button {
+    margin-top: 20px; /* Optional: Add some space above the button */
+  }
+  
+  button {
+    color:black;
+    padding: 10px 20px; /* Add padding to the button */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    background-color: #007bff; /* Set button background color */
+    color: #fff; /* Set button text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius to button */
+  }
+  
+  button:hover {
+    
+    background-color: #0056b3; /* Change button background color on hover */
+  }
+  
+  input{
+    border: 1px solid black;
+  }

@@ -11,33 +11,31 @@ function Room() {
 
     const handleClick = () => {
         console.log(room,ss,ds);
-        // username = "abv";
-        //history.push('/selectpage'); // Redirect to the selectpage route
-      }
-    
-
+    }
 
     return (
-        <div className="body">
+        <div className="room-allocate">
         <div className="container">
             <div>
             <h1>Room Allocation</h1>
             </div>
             <div className="room">
-                <label>Rooms:</label>
+                <label>Rooms</label>
                 <input type="text" name="room" id="room" value={room} onChange={event=>{setRoom(event.target.value)}} />
             </div>
             <div className="dseat">
-                <label>Double Seat:</label>
+                <label>Double Seat</label>
                 <input type="text" name="Double" id="double" value={ds} onChange={event=>{setds(event.target.value)}} />
             </div>
             <div className="sseat">
-                <label>Single Seat:</label>
+                <label>Single Seat</label>
                 <input type="text" name="Single" id="single" value={ss} onChange={event=>{setss(event.target.value)}} />
             </div>
-            <button onClick={handleClick}>Submit</button>
+            <div className='login-form-button'>
+          <button type="submit" onClick={handleClick}><b>Login</b></button>
         </div>
-        <hr/>
+        </div>
+        <hr></hr>
         </div>
     );
 }
