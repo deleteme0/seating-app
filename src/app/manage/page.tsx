@@ -20,19 +20,19 @@ function Room() {
             <h1>Room Allocation</h1>
             </div>
             <div className="room">
-                <label>Rooms</label>
+                <label>Room Number</label>
                 <input type="text" name="room" id="room" value={room} onChange={event=>{setRoom(event.target.value)}} />
             </div>
             <div className="dseat">
                 <label>Double Seat</label>
-                <input type="text" name="Double" id="double" value={ds} onChange={event=>{setds(event.target.value)}} />
+                <input type="number" name="Double" id="double" value={ds} onChange={event=>{setds(event.target.value)}} />
             </div>
             <div className="sseat">
                 <label>Single Seat</label>
-                <input type="text" name="Single" id="single" value={ss} onChange={event=>{setss(event.target.value)}} />
+                <input type="number" name="Single" id="single" value={ss} onChange={event=>{setss(event.target.value)}} />
             </div>
             <div className='login-form-button'>
-          <button type="submit" onClick={handleClick}><b>Login</b></button>
+          <button type="submit" onClick={handleClick}><b>Submit</b></button>
         </div>
         </div>
         <hr></hr>

@@ -27,6 +27,9 @@
   .room,
   .dseat,
   .sseat {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
     margin-bottom: 15px; /* Optional: Add space between input sections */
   }
   
@@ -45,13 +48,15 @@
     padding: 10px 20px; /* Add padding to the button */
     cursor: pointer; /* Change cursor to pointer on hover */
     background-color: #007bff; /* Set button background color */
-    color: #fff; /* Set button text color */
-    border: none; /* Remove border */
+    color: blue; /* Set button text color */
+     /* Remove border */
+     border: 1px solid black;
     border-radius: 5px; /* Add border radius to button */
   }
   
   button:hover {
-    
+    color:white;
+    border: none;
     background-color: #0056b3; /* Change button background color on hover */
   }
   
