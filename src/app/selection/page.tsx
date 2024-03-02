@@ -15,6 +15,11 @@ export default function Selection() {
         {
             dept: "3ECE",
             use:false,
+            rollnos: [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
+        },
+        {
+            dept: "3ADS",
+            use:false,
             rollnos: [2,3,4,5,6,7,8,9,10]
         }
     ])
@@ -32,10 +37,7 @@ export default function Selection() {
                 [{dept:"",rollno:"",selected:0}],
                 [{dept:"",rollno:"",selected:0}],
                 [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
-                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
-                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
-                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
-                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}]
             ]
         },
         {

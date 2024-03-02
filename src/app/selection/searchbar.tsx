@@ -94,7 +94,7 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
                 </label>
             </div>
             <div>
-                <button onClick={()=>{handleArrange()}} className=" bg-black">Auto Arrange</button>
+                <button onClick={()=>{handleArrange()}} className=" bg-red-500">Auto Arrange</button>
             </div>
         </div>
     )
