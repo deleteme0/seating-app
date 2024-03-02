@@ -1,5 +1,28 @@
 
+import autoAddEm from "../utililties/autoaddem"
+
 export default function SearchBar({setCount,setRooms,rooms,students,setStudents}:{setCount:any,setRooms:any,rooms:any,students:any,setStudents:any}) {
+
+    const handleArrange = () =>{
+        var ourRoom = rooms.slice();
+        students.forEach((each:any) => {
+            if (each.use == false){
+                return;
+            }
+            if (ourRoom == -1){
+                return;
+            }
+            ourRoom = autoAddEm(ourRoom,each,false);
+
+            
+        })
+        if (ourRoom == -1){
+            return;
+        }
+        console.log(ourRoom);
+
+        setRooms(ourRoom);
+    }
 
     const handleRoomChange = ({rooms,i}:{rooms:any,i:any}) => {
         var newrooms = rooms.slice();
@@ -69,6 +92,9 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
                 <input type="number" id="Count" onChange={(val) => {setCount(val.target.value);
                 }} className=" bg-red-500 border border-gray-500 focus:border-blue-600 border-t-2 text-gray-900"></input>
                 </label>
+            </div>
+            <div>
+                <button onClick={()=>{handleArrange()}} className=" bg-black">Auto Arrange</button>
             </div>
         </div>
     )

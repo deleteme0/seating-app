@@ -51,8 +51,28 @@ const SingleSeat = ({handle,ind,rooms,activeRoom}:{handle:any,ind:any,rooms:any,
 const  DoubleSeat = ({handle,ind,rooms,activeRoom}:{handle:any,ind:any,rooms:any,activeRoom:any}) => {
     return(
         <div>
-            <button onClick={() => {handle(ind,0)}} className={getStyle(rooms[activeRoom].benches[ind][0].selected)}> seat </button>
-            <button onClick={() => {handle(ind,1)}} className={getStyle(rooms[activeRoom].benches[ind][1].selected)}> seat </button>
+            <button onClick={() => {handle(ind,0)}} className={getStyle(rooms[activeRoom].benches[ind][0].selected)}> 
+            {
+                rooms[activeRoom].benches[ind].slice(0,1).map((each:any)=>{
+                    if (each.dept != ""){
+                        return(<p> {each.dept} {each.rollno}</p>)
+                    }
+                    return(<p> Available</p>)
+                    
+                })
+            }
+            </button>
+            <button onClick={() => {handle(ind,1)}} className={getStyle(rooms[activeRoom].benches[ind][1].selected)}>
+            {
+                rooms[activeRoom].benches[ind].slice(1,2).map((each:any)=>{
+                    if (each.dept != ""){
+                        return(<p> {each.dept} {each.rollno}</p>)
+                    }
+                    return(<p> Available</p>)
+                    
+                })
+            }
+            </button>
         </div>
     )
 }

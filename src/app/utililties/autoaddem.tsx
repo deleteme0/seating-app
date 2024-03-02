@@ -18,7 +18,8 @@ export default function autoAddEm (rooms:any,students:any,skipbench:any) {
     var myRoom = rooms.slice();
 
     const dept = students.dept;
-    var myStudents = students.slice();
+    //var myStudents = students.slice();
+    var myStudents = structuredClone(students);
 
     const totalStudents = myStudents.rollnos.length;
 
@@ -28,6 +29,11 @@ export default function autoAddEm (rooms:any,students:any,skipbench:any) {
     var gotLast = false;
 
     myRoom.forEach((element: any) => {
+
+        if (element.use == false){
+            return;
+        }
+
         element.benches.forEach((bench:any) => {
             var skip = false;
 
@@ -46,10 +52,9 @@ export default function autoAddEm (rooms:any,students:any,skipbench:any) {
                 if (bench.length == 1){
                     skip = true;
                 }
-                if (bench[1].dept != ""){
+                else if (bench[1].dept != ""){
                     skip= true;
                 }
-                
             }
 
             if (skipbench == true){
@@ -72,9 +77,9 @@ export default function autoAddEm (rooms:any,students:any,skipbench:any) {
             }
         })
     });
-
+    console.log(totalStudents,seatingCapacity);
     if (totalStudents > seatingCapacity){
-        return "Not enough benches";
+        return -1;
     }
 
     //ARRANGEMENT DONE BELOW
@@ -95,7 +100,7 @@ export default function autoAddEm (rooms:any,students:any,skipbench:any) {
                 return;
             }
 
-            if (bench[0].dept == ""){
+            if (bench[0].dept == ''){
                 bench[0].dept = dept;
                 bench[0].rollno = myStudents.rollnos.shift();
                 gotLast = true;
@@ -104,7 +109,8 @@ export default function autoAddEm (rooms:any,students:any,skipbench:any) {
                     return;
                 }
 
-                if (bench[1].dept = ""){
+                if (bench[1].dept == ''){
+                    console.log('here');
                     bench[1].dept = dept;
                     bench[1].rollno = myStudents.rollnos.shift();
                     gotLast = true;
