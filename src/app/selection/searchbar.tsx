@@ -1,12 +1,29 @@
 
-export default function SearchBar({setCount,setRooms,rooms}:{setCount:any,setRooms:any,rooms:any}) {
+export default function SearchBar({setCount,setRooms,rooms,students,setStudents}:{setCount:any,setRooms:any,rooms:any,students:any,setStudents:any}) {
 
     const handleRoomChange = ({rooms,i}:{rooms:any,i:any}) => {
         var newrooms = rooms.slice();
         console.log(newrooms[i]);
+
+        if (newrooms[i].use == true){
+            newrooms[i].benches.forEach((element:any) => {
+                element.forEach((each:any) => {
+                    each.selected = 0;
+                });
+            });
+        }
+
         newrooms[i].use = !newrooms[i].use;
         
         setRooms(newrooms);
+    }
+    const handleDeptChange = ({students,i}:{students:any,i:any}) => {
+        var newstudents = students.slice();
+        console.log(students[i]);
+
+        newstudents[i].use = !newstudents[i].use;
+        
+        setStudents(newstudents);
     }
 
     return (
@@ -19,6 +36,21 @@ export default function SearchBar({setCount,setRooms,rooms}:{setCount:any,setRoo
             </div>
             <div>
                 
+                <label className=" grid grid-cols-1 ">Select Depts:
+                {students.map(
+                    (each:any,i:any)=>(
+                        <label key={i}>
+                        {each.dept}: <input type="checkbox" id={i} name="room" onChange={() => {handleDeptChange({students,i})}}/> {each.rollnos.length} Students
+                        </label>
+                    )
+                )}
+                {/* <label id="myCheckbox" >
+                111: <input type="checkbox" name="myCheckbox" />
+                </label> */}
+                </label>
+            </div>
+            <div>
+                
                 <label className=" grid grid-cols-1 ">Select Rooms:
                 {rooms.map(
                     (each:any,i:any)=>(
@@ -27,10 +59,10 @@ export default function SearchBar({setCount,setRooms,rooms}:{setCount:any,setRoo
                         </label>
                     )
                 )}
-                <label id="myCheckbox" >
+                {/* <label id="myCheckbox" >
                 111: <input type="checkbox" name="myCheckbox" />
+                </label> */}
                 </label>
-      </label>
             </div>
             <div>
                 <label id="Count" className="">Count:

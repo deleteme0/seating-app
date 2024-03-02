@@ -6,6 +6,18 @@ import ShowRooms from './showrooms';
 export default function Selection() {
 
     const [count,setCount] = useState(0)
+    const [students,setStudents] = useState([
+        {
+            dept: "3CSE",
+            use:false,
+            rollnos: [1,2,3,4,5,6,7,8,9,10]
+        },
+        {
+            dept: "3ECE",
+            use:false,
+            rollnos: [2,3,4,5,6,7,8,9,10]
+        }
+    ])
     const [rooms,setRooms] = useState([
         {
             roomno: 102,
@@ -90,7 +102,7 @@ export default function Selection() {
 
     return (
         <div className=" bg-white text-black align-bottom space-y-5">
-            <SearchBar setCount={setCount}  setRooms={setRooms} rooms={rooms}></SearchBar><br></br>
+            <SearchBar students={students} setStudents={setStudents} setCount={setCount}  setRooms={setRooms} rooms={rooms}></SearchBar><br></br>
             <p>Students count {count}</p>
             <div>
             <ShowRooms rooms={rooms} setRooms={setRooms}></ShowRooms>

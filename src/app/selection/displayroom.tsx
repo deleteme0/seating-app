@@ -1,5 +1,6 @@
 "use client";
 
+import { Elsie_Swash_Caps } from "next/font/google";
 import { act } from "react-dom/test-utils";
 
 //function SingleSeat({handle:any,ind:any,rooms:any}){
@@ -33,7 +34,17 @@ const getStyle = (num:any) => {
 const SingleSeat = ({handle,ind,rooms,activeRoom}:{handle:any,ind:any,rooms:any,activeRoom:any}) =>{
     return(
         <div>
-            <button onClick={() => {handle(ind)}} className={getStyle(rooms[activeRoom].benches[ind][0].selected)}> seat </button>
+            <button onClick={() => {handle(ind)}} className={getStyle(rooms[activeRoom].benches[ind][0].selected)}> 
+            {
+                rooms[activeRoom].benches[ind].map((each:any)=>{
+                    if (each.dept != ""){
+                        return(<p> {each.dept} {each.rollno}</p>)
+                    }
+                    return(<p> Available</p>)
+                    
+                })
+            }
+            </button>
         </div>
     )
 }
