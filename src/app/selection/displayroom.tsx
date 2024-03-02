@@ -1,4 +1,7 @@
 "use client";
+
+import { act } from "react-dom/test-utils";
+
 //function SingleSeat({handle:any,ind:any,rooms:any}){
 //    return(
 //        <div>
@@ -76,7 +79,7 @@ export default function DisplayRoom({rooms,activeRoom,setRooms}:{rooms:any,activ
         setRooms(newrooms);
     }
 
-    if (activeRoom == null){
+    if (activeRoom == null || rooms[activeRoom].use == false){
         return (
             <div></div>
         )
