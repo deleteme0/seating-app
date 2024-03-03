@@ -1,65 +1,70 @@
+.room-allocate {
+  padding: 20px;
+  margin: auto; /* Center align */
+  width: 50%; /* Set width */
+}
 
+.student {
+  display: flex;
+  padding: 20px;
+  margin-top: 20px; /* Space between containers */
+  margin-bottom: 20px; /* Space between containers */
+  margin-left: auto; /* Center align */
+  margin-right: auto; /* Center align */
+  width: 100%; /* Set width */
+}
 
-  .room-allocate {
-    display: flex;
-    color: black;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Ensure the div takes up the full viewport height */
-    background-color: #f0f0f0; /* Set a nice background color */
-  }
-  
-  .container {
-    display: flex;
-    flex-direction: column;
-    width:fit-content;
-    text-align: center; /* Align contents to the center */
-    background-color: #ffffff; /* Optional: Add a white background to the container */
-    padding: 20px;
-    border-radius: 10px; /* Optional: Add rounded corners to the container */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
-  }
-  
-  .room h1 {
-    margin-bottom: 20px; /* Optional: Add some space below the heading */
-  }
-  
-  .room,
-  .dseat,
-  .sseat {
-    display: flex;
-    flex-direction: column;
-    justify-content:space-around;
-    margin-bottom: 15px; /* Optional: Add space between input sections */
-  }
-  
-  input[type="text"] {
-    width: 100%; /* Make inputs fill the width of their container */
-    padding: 10px; /* Add some padding for better appearance */
-    box-sizing: border-box; /* Include padding and border in the element's total width */
-  }
-  
-  .login-form-button {
-    margin-top: 20px; /* Optional: Add some space above the button */
-  }
-  
-  button {
-    color:black;
-    padding: 10px 20px; /* Add padding to the button */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    background-color: #007bff; /* Set button background color */
-    color: blue; /* Set button text color */
-     /* Remove border */
-     border: 1px solid black;
-    border-radius: 5px; /* Add border radius to button */
-  }
-  
-  button:hover {
-    color:white;
-    border: none;
-    background-color: #0056b3; /* Change button background color on hover */
-  }
-  
-  input{
-    border: 1px solid black;
-  }
+.container,
+.container2 {
+  color: #0056b3;
+  padding: 20px; /* Add padding for spacing */
+  margin-bottom: 20px; /* Add space between containers */
+  /* background-color: rgba(255, 255, 255, 0.5); Faded white background color */
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.container label,
+.container2 label {
+  text-align: left; /* Align labels to the left */
+  margin-bottom: 10px; /* Space between label and input field */
+}
+
+.container input,
+.container2 input {
+  width: 100%; /* Set input width to 100% */
+  padding: 8px; /* Add padding for input fields */
+  margin-bottom: 10px; /* Space between input fields */
+  box-sizing: border-box; /* Include padding in input field width */
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.login-form-button {
+  margin-top: 20px; /* Space between button and input fields */
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%; /* Make button flexible */
+  box-sizing: border-box; /* Include padding in button width */
+}
+
+button:hover {
+  border: none;
+  color: white;
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+button{
+  color: rgb(93, 131, 184);
+  border: 1px solid black;
+
+}
