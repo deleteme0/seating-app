@@ -13,11 +13,45 @@ function Room() {
     const [rollno,setrollno]=useState("");
 
     const handleClick = () => {
+        //room
         console.log(room,ss,ds);
+
+        async function addRoom(){
+            const ret = await fetch(process.env.NEXT_PUBLIC_API+"/manage/hall",{
+                method:"POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                  },
+                  body: JSON.stringify({
+                    roomno:room,
+                    single:ss,
+                    double:ds
+                  })
+            })
+        }
+
+        addRoom();
     }
 
     const add = () => {
+        //students
         console.log(dept,sem,rollno);
+        let rollnos = rollno.split(',')
+        async function addDept(){
+            var ret = await fetch(process.env.NEXT_PUBLIC_API+'/manage/student',{
+                method:"POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                  },
+                  body: JSON.stringify({
+                    dept:dept,
+                    rollnos:rollno.split(',')
+                  })
+            })
+        }
+        addDept();
     }
 
     return (
@@ -58,7 +92,7 @@ function Room() {
                     </div>
                     <div className="rollno">
                         <label>Roll No</label>
-                        <input type="number" name="rollno" id="rollno" value={rollno} onChange={event=>{setrollno(event.target.value)}} />
+                        <input type="text" name="rollno" id="rollno" value={rollno} onChange={event=>{setrollno(event.target.value)}} />
                     </div>
                     <div className='login-form-button'>
                   <button type="submit" onClick={add}><b>Add</b></button>
@@ -66,7 +100,7 @@ function Room() {
                 </div>
             </div>
         </div>
-
+        <a className=" bg-red-500 size-4" href="./selection">Goto selection</a>
         </div>
     );
 }
