@@ -19,7 +19,7 @@ const SeatButtom = ({handle,shade}:{handle:any,shade:any}) =>{
         )
     }
     return(
-        <button onClick={() => {handle}} className=" bg-red-500 "></button>
+        <button onClick={() => {handle}} className=" bg-lime-500 "></button>
     )
 }
 

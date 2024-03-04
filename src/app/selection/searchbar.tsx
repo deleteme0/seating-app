@@ -54,7 +54,7 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
             
             <div>
                 <label id="department" className="">Department:
-                <input type="text" id="department" className=" bg-red-500 border border-gray-500 focus:border-blue-600 border-t-2 text-gray-900"></input>
+                <input type="text" id="department" className=" bg--500 border border-gray-500 focus:border-blue-600 border-t-2 text-gray-900"></input>
                 </label>
             </div>
             <div>
@@ -90,11 +90,11 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
             <div>
                 <label id="Count" className="">Count:
                 <input type="number" id="Count" onChange={(val) => {setCount(val.target.value);
-                }} className=" bg-red-500 border border-gray-500 focus:border-blue-600 border-t-2 text-gray-900"></input>
+                }} className="bg-blue 500 border border-gray-500 focus:border-blue-600 border-t-2 text-gray-900"></input>
                 </label>
             </div>
             <div>
-                <button onClick={()=>{handleArrange()}} className=" bg-red-500">Auto Arrange</button>
+                <button onClick={()=>{handleArrange()}} className=" bg-blue-500">Auto Arrange</button>
             </div>
         </div>
     )

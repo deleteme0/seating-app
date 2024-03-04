@@ -150,7 +150,7 @@ export default function Selection() {
             <div>
             <ShowRooms rooms={rooms} setRooms={setRooms}></ShowRooms>
             </div>
-            <a className=" bg-red-500 size-4" href="./manage">Add depts or rooms</a>
+            <a className=" bg-azure-500 size-4" href="./manage">Add depts or rooms</a>
         </div>
     )
 }

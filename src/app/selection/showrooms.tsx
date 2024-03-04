@@ -12,7 +12,7 @@ export default function ShowRooms({rooms,setRooms}:{rooms:any,setRooms:any}) {
 
     return(
         <div>
-        <div className=" bg-gray-500 grid grid-cols-5 space-y-5 space-x-4 border-spacing-5">
+        <div className=" bg-azure-500 grid grid-cols-5 space-y-5 space-x-4 border-spacing-5">
             <p>Rooms :</p>
                 {rooms.map(
                     (each:any,i:any)=>(
