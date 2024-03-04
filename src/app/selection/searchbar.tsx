@@ -3,6 +3,24 @@ import autoAddEm from "../utililties/autoaddem"
 import './select.css';
 export default function SearchBar({setCount,setRooms,rooms,students,setStudents}:{setCount:any,setRooms:any,rooms:any,students:any,setStudents:any}) {
 
+    const handleClear = () =>{
+
+        var myrooms = rooms.slice();
+
+        myrooms.forEach(element => {
+            element.benches.forEach(bench => {
+
+                bench[0].dept = "";
+
+                if (bench.length > 1){
+                    bench[1].dept = "";
+                }
+            })
+        });
+
+        setRooms(myrooms);
+    }
+
     const handleArrange = () =>{
         var ourRoom = rooms.slice();
         students.forEach((each:any) => {
@@ -96,6 +114,9 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
             </div>
             <div>
                 <button onClick={()=>{handleArrange()}} className=" bg-blue-500">Auto Arrange</button>
+            </div>
+            <div>
+                <button onClick={()=>{handleClear()}}>Clear Seating</button>
             </div>
         </div>
     )

@@ -33,7 +33,7 @@ const getStyle = (num:any) => {
 
 const SingleSeat = ({ handle, ind, rooms, activeRoom }: { handle: any, ind: any, rooms: any, activeRoom: any }) => {
     return (
-        <div>
+        <div className="bench">
             <button onClick={() => { handle(ind) }} className={getStyle(rooms[activeRoom].benches[ind][0].selected)}>
                 {
                     rooms[activeRoom].benches[ind].map((each: any, index: number) => (
@@ -49,7 +49,7 @@ const SingleSeat = ({ handle, ind, rooms, activeRoom }: { handle: any, ind: any,
 
 const DoubleSeat = ({ handle, ind, rooms, activeRoom }: { handle: any, ind: any, rooms: any, activeRoom: any }) => {
     return (
-        <div>
+        <div className="bench">
             <button onClick={() => { handle(ind, 0) }} className={getStyle(rooms[activeRoom].benches[ind][0].selected)}>
                 {
                     rooms[activeRoom].benches[ind].slice(0, 1).map((each: any, index: number) => (

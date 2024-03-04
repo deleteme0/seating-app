@@ -10,13 +10,13 @@ export default function Selection() {
     const [students,setStudents] = useState([])
     const [rooms,setRooms] = useState([])
 
-    const local = true;
+    const local = false;
     //const [students,setStudents] = useState([])
     //const [rooms,setRooms] = useState([])
 
     useEffect(()=>{
 
-        if (local == true){
+        if (local){
             setStudents([
                 {
                     dept: "3CSE",

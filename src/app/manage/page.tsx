@@ -29,9 +29,18 @@ function Room() {
                     double:ds
                   })
             })
+
+            if (ret.status == 200){
+                alert("Added succesfully");
+            }else{
+                alert("Alreasdy exists");
+            }
         }
 
         addRoom();
+        setRoom("");
+        setds("");
+        setss("");
     }
 
     const add = () => {
@@ -50,8 +59,17 @@ function Room() {
                     rollnos:rollno.split(',')
                   })
             })
+
+            if (ret.status == 200){
+                alert("Added successfully")
+            }else{
+                alert("Already exists")
+            }
         }
         addDept();
+        setDept("");
+        setSem("");
+        setrollno("");
     }
 
     return (
