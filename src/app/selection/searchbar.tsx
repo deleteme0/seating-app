@@ -17,6 +17,7 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
             
         })
         if (ourRoom == -1){
+            alert("Hall space not enough")
             return;
         }
         console.log(ourRoom);
