@@ -31,6 +31,49 @@ const getStyle = (num:any) => {
     }
 }
 
+const SingleSeat = ({ handle, ind, rooms, activeRoom }: { handle: any, ind: any, rooms: any, activeRoom: any }) => {
+    return (
+        <div>
+            <button onClick={() => { handle(ind) }} className={getStyle(rooms[activeRoom].benches[ind][0].selected)}>
+                {
+                    rooms[activeRoom].benches[ind].map((each: any, index: number) => (
+                        <div key={index} style={{ border: '1px solid black', padding: '10px', margin: '10px', backgroundColor: each.dept !== "" ? 'lightgrey' : 'white', width: '150px' }}>
+                            {each.dept !== "" ? `${each.dept} ${each.rollno}` : "Available"}
+                        </div>
+                    ))
+                }
+            </button>
+        </div>
+    );
+}
+
+const DoubleSeat = ({ handle, ind, rooms, activeRoom }: { handle: any, ind: any, rooms: any, activeRoom: any }) => {
+    return (
+        <div>
+            <button onClick={() => { handle(ind, 0) }} className={getStyle(rooms[activeRoom].benches[ind][0].selected)}>
+                {
+                    rooms[activeRoom].benches[ind].slice(0, 1).map((each: any, index: number) => (
+                        <div key={index} style={{ border: '1px solid black', padding: '10px', margin: '10px', backgroundColor: each.dept !== "" ? 'lightgrey' : 'white', width: '150px' }}>
+                            {each.dept !== "" ? `${each.dept} ${each.rollno}` : "Available"}
+                        </div>
+                    ))
+                }
+            </button>
+            <button onClick={() => { handle(ind, 1) }} className={getStyle(rooms[activeRoom].benches[ind][1].selected)}>
+                {
+                    rooms[activeRoom].benches[ind].slice(1, 2).map((each: any, index: number) => (
+                        <div key={index} style={{ border: '1px solid black', padding: '10px', margin: '10px', backgroundColor: each.dept !== "" ? 'lightgrey' : 'white', width: '150px' }}>
+                            {each.dept !== "" ? `${each.dept} ${each.rollno}` : "Available"}
+                        </div>
+                    ))
+                }
+            </button>
+        </div>
+    );
+}
+
+
+/*
 const SingleSeat = ({handle,ind,rooms,activeRoom}:{handle:any,ind:any,rooms:any,activeRoom:any}) =>{
     return(
         <div>
@@ -76,6 +119,7 @@ const  DoubleSeat = ({handle,ind,rooms,activeRoom}:{handle:any,ind:any,rooms:any
         </div>
     )
 }
+*/
 
 export default function DisplayRoom({rooms,activeRoom,setRooms}:{rooms:any,activeRoom:any,setRooms:any}) {
 
