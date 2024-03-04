@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import SearchBar from './searchbar';
 import ShowRooms from './showrooms';
+import PdfMaker from './pdfmaker';
 
 
 export default function Selection() {
@@ -135,6 +136,7 @@ export default function Selection() {
             })
 
             const data = await grooms.json();
+            console.log(data);
             setRooms(data);
         }
         doGet();
@@ -150,6 +152,7 @@ export default function Selection() {
             <div>
             <ShowRooms rooms={rooms} setRooms={setRooms}></ShowRooms>
             </div>
+            <PdfMaker rooms={rooms} students={students}></PdfMaker>
             <a className=" bg-azure-500 size-4" href="./manage">Add depts or rooms</a>
         </div>
     )
