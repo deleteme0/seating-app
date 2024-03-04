@@ -1,6 +1,6 @@
 
 import autoAddEm from "../utililties/autoaddem"
-
+import './select.css';
 export default function SearchBar({setCount,setRooms,rooms,students,setStudents}:{setCount:any,setRooms:any,rooms:any,students:any,setStudents:any}) {
 
     const handleArrange = () =>{
@@ -52,7 +52,7 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
     return (
         <div className="grid align-middle text-black mb-6 bg-gray-500 md:grid-cols-2 gap-6 gap-x-5 space-x-4">
             
-            <div>
+            <div className="dept">
                 <label id="department" className="">Department:
                 <input type="text" id="department" className=" bg--500 border border-gray-500 focus:border-blue-600 border-t-2 text-gray-900"></input>
                 </label>
