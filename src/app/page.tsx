@@ -39,6 +39,7 @@ export default function About() {
         <div className='login-form-button'>
           <button type="submit" onClick={handleClick} className="login-form-button"><b className='login-form-button'>Login</b></button>
         </div>
+        <a href="./selection">Continue without login</a>
       </div>
     </div>
     </div>

@@ -155,7 +155,7 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
     
     return (
         <div className=' bg-slate-500 '>
-            <button onClick={handleDownload}>Download</button>
+            <button onClick={handleDownload} className="  ">Download</button>
             <div className=" bg-azure-500 grid grid-cols-5 space-y-5 space-x-4 border-spacing-5">
             <p>select Dept :</p>
                 {students.map(
