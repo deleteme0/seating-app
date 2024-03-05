@@ -103,29 +103,29 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
             })
             console.log(result)
             return result;
-          };
+};
 
         function createHeaders(keys) {
             var result = [];
             for (var i = 0; i < keys.length; i += 1) {
-              result.push({
+            result.push({
                 id: keys[i],
                 name: keys[i],
                 prompt: keys[i],
                 width: 65,
                 align: "center",
                 padding: 20
-              });
+            });
             }
             return result;
-          }
+        }
         
-          var headers = createHeaders([
+        var headers = createHeaders([
             "roomno",
             "rollnos"
-          ]);
+]);
 
-          var img = new Image();
+        var img = new Image();
         img.src = '/image.png'; // Change this path as per your directory structure
         console.log(generateData());
         var doc = new jsPDF({ putOnlyUsedFonts: true, orientation: "portrait" });
@@ -138,14 +138,14 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
 
         return;
 
-          var img = new Image();
-          img.src = gimg;
-          console.log(img);
-          var ipp = "<img src=require('./image.png')></img>";
-          doc.addImage(img, 'PNG', 10, 10, 200, 50);
-          doc.text("DEPARTMENT: "+gdept.slice(1)+ "    YEAR: "+gdept.slice(0,1),1,7)
-          doc.table(1, 10, generateData(), headers, { autoSize: true });
-          doc.save("this.pdf")
+        var img = new Image();
+        img.src = gimg;
+        console.log(img);
+        var ipp = "<img src=require('./image.png')></img>";
+        doc.addImage(img, 'PNG', 10, 10, 200, 50);
+        doc.text("DEPARTMENT: "+gdept.slice(1)+ "    YEAR: "+gdept.slice(0,1),1,7)
+        doc.table(1, 10, generateData(), headers, { autoSize: true });
+        doc.save("this.pdf")
     }
 
     const handlechange = (event) => {
@@ -160,15 +160,19 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
             <button onClick={handleDownload} hidden={gdept==null} className=" down-button">Download</button>
             </div>
             <div className=" bg-azure-500 grid grid-cols-5 space-y-5 space-x-4 border-spacing-5">
-            
-            <p>select Dept :</p>
+            <p>select Dept :
+                <select onChange={handlechange} className="DownloadSelections" name="selectedDownload" id="room">
+                <option value="" disabled selected hidden>--Select--</option>
                 {students.map(
                     (each:any,i:any)=>(
-                        <label key={"radiol"+each.dept} hidden={each.use == false}>
-                        <input type="radio" name="selectedRoom" key={"radio"+each.roomno} id={each} onChange={handlechange} value={each.dept}/>
-                        {each.dept}</label>
+                        <option hidden={each.use === false} key={"radio"+each.roomno} id={each} value={each.dept}>{each.dept}</option>
+                        /*<label key={"radiol"+each.dept} hidden={each.use == false}>*/
+                        /*<input type="radio" name="selectedRoom" key={"radio"+each.roomno} id={each} onChange={handlechange} value={each.dept}/>*/
+                        /*{each.dept}</label>*/
                     )
                 )}
+                </select>
+                </p>
                 </div>
         </div>
         

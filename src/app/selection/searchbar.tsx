@@ -2,6 +2,8 @@
 import autoAddEm from "../utililties/autoaddem"
 import './select.css';
 import './cssforshowroom.css';
+import './buttonEffect.css';
+import './checkboxLook.css';
 
 export default function SearchBar({setCount,setRooms,rooms,students,setStudents}:{setCount:any,setRooms:any,rooms:any,students:any,setStudents:any}) {
 
@@ -79,27 +81,24 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
                 </label>
             </div> */}
             <div>
-                
-                <label className=" grid grid-cols-1 ">Select Depts:
-                {students.map(
-                    (each:any,i:any)=>(
-                        <label key={i}>
-                        {each.dept}: <input type="checkbox" id={i} name="room" onChange={() => {handleDeptChange({students,i})}}/> {each.rollnos.length} Students
-                        </label>
-                    )
-                )}
-                {/* <label id="myCheckbox" >
-                111: <input type="checkbox" name="myCheckbox" />
-                </label> */}
+                <label className="grid grid-cols-1">Select Depts:
+                    {students.map(
+                        (each: any, i: any) => (
+                            <label key={i}>
+                                {each.dept}: <input type="checkbox" id={i} className="switcher" name="room" onChange={() => { handleDeptChange({ students, i }) }} />{each.rollnos.length}  Students
+                            </label>
+                        )
+                    )}
                 </label>
             </div>
+
             <div>
                 
                 <label className=" grid grid-cols-1 ">Select Rooms:
                 {rooms.map(
                     (each:any,i:any)=>(
                         <label key={i}>
-                        {each.roomno}: <input type="checkbox" id={i} name="room" onChange={() => {handleRoomChange({rooms,i})}}/>
+                        {each.roomno}: <input type="checkbox" id={i} className="switcher" name="room" onChange={() => {handleRoomChange({rooms,i})}}/>
                         </label>
                     )
                 )}
@@ -115,10 +114,19 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
                 </label>
             </div> */}
             <div>
-                <button onClick={()=>{handleArrange()}} className=" bg-blue-500 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Auto Arrange</button>
-            </div>
+    <button
+        onClick={() => { handleArrange() }}
+        className="bg-gradient-hover bg-gradient-move hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded transition duration-300 ease-in-out">
+        Auto Arrange
+    </button>
+</div>
+
+
+
+
             <div>
-                <button className=" bg-blue-500 align-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" onClick={()=>{handleClear()}}>Clear Seating</button>
+                <button onClick={()=>{handleClear()}} 
+                className="bg-gradient-hover bg-gradient-move hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded transition duration-300 ease-in-out">Clear Seating</button>
             </div>
         </div>
     )
