@@ -13,14 +13,18 @@ export default function ShowRooms({rooms,setRooms}:{rooms:any,setRooms:any}) {
     return(
         <div>
         <div className=" bg-azure-500 grid grid-cols-5 space-y-5 space-x-4 border-spacing-5">
-            <p>Rooms :</p>
+            <p>Rooms :
+            <select onChange={handlechange} name="selectedroom" id="roomselect">
+            <option value="" disabled selected hidden>--Select--</option>
                 {rooms.map(
                     (each:any,i:any)=>(
-                        <label key={"radiol"+each.roomno} hidden={each.use == false}>
-                        <input type="radio" name="selectedRoom" key={"radio"+each.roomno} id={each} onChange={handlechange} value={i}/>
-                        {each.roomno}</label>
-                    )
+                        <option hidden={each.use==false} value={i}>{each.roomno}</option>)
+                        // <label key={"radiol"+each.roomno} hidden={each.use == false}>
+                        /* <input type="radio" name="selectedRoom" key={"radio"+each.roomno} id={each} onChange={handlechange} value={i}/>{each.roomno}</label> */
+                    
                 )}
+                </select>
+                </p>
                 </div>
             <DisplayRoom rooms={rooms} activeRoom={activeRoom} setRooms={setRooms}></DisplayRoom>
         </div>
