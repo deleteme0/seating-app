@@ -46,7 +46,24 @@ function Room() {
     const add = () => {
         //students
         console.log(dept,sem,rollno);
+        
         let rollnos = rollno.split(',')
+        let l=[]
+        
+        rollnos.forEach(element => {
+            let val = element.split('-');
+            
+            if (val.length == 1){
+                l.push(parseInt(val[0]))
+                return;
+            }
+            for(var i=parseInt(val[0]);i<=parseInt(val[1]);i++){
+                l.push(i);
+            }
+
+        })
+        console.log("l is")
+        console.log(l);
         async function addDept(){
             var ret = await fetch(process.env.NEXT_PUBLIC_API+'/manage/student',{
                 method:"POST",
@@ -56,7 +73,7 @@ function Room() {
                   },
                   body: JSON.stringify({
                     dept:dept,
-                    rollnos:rollno.split(',')
+                    rollnos:l
                   })
             })
 
