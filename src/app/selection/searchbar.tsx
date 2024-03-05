@@ -71,11 +71,11 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
     return (
         <div className="grid align-middle text-black mb-6 bg-gray-500 md:grid-cols-2 gap-6 gap-x-5 space-x-4">
             
-            <div className="dept">
+            {/* <div className="dept">
                 <label id="department" className="">Department:
                 <input type="text" id="department" className=" bg--500 border border-gray-500 focus:border-blue-600 border-t-2 text-gray-900"></input>
                 </label>
-            </div>
+            </div> */}
             <div>
                 
                 <label className=" grid grid-cols-1 ">Select Depts:
@@ -106,12 +106,12 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
                 </label> */}
                 </label>
             </div>
-            <div>
+            {/* <div>
                 <label id="Count" className="">Count:
                 <input type="number" id="Count" onChange={(val) => {setCount(val.target.value);
                 }} className="bg-blue 500 border border-gray-500 focus:border-blue-600 border-t-2 text-gray-900"></input>
                 </label>
-            </div>
+            </div> */}
             <div>
                 <button onClick={()=>{handleArrange()}} className=" bg-blue-500">Auto Arrange</button>
             </div>

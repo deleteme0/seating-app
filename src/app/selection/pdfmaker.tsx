@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { jsPDF } from 'jspdf';
 import { renderToString } from "react-dom/server";
 const gimg = require("./image.png");
+import "./select.css";
 
 
 export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
@@ -154,9 +155,12 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
     console.log(students)
     
     return (
-        <div className=' bg-slate-500 '>
-            <button onClick={handleDownload} className="  ">Download</button>
+        <div className='bg-slate-500'>
+            <div className=' text-center '>
+            <button onClick={handleDownload} className=" down-button">Download</button>
+            </div>
             <div className=" bg-azure-500 grid grid-cols-5 space-y-5 space-x-4 border-spacing-5">
+            
             <p>select Dept :</p>
                 {students.map(
                     (each:any,i:any)=>(
@@ -167,5 +171,6 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
                 )}
                 </div>
         </div>
+        
         )
 }

@@ -16,3 +16,15 @@
     
 
 }
+
+.down-button{
+    text-align: center;
+    color: aqua;
+    font-size: 25px;
+    
+}
+
+.down-button:hover{
+    color: violet;
+    
+}
