@@ -2,6 +2,9 @@
   padding: 20px;
   margin: auto; /* Center align */
   width: 50%; /* Set width */
+  display: flex;
+  flex-direction: column;
+
 }
 
 .student {
@@ -35,6 +38,7 @@
 
 .container input,
 .container2 input {
+  background-color: aliceblue;
   width: 100%; /* Set input width to 100% */
   padding: 8px; /* Add padding for input fields */
   margin-bottom: 10px; /* Space between input fields */
@@ -77,4 +81,22 @@ body{
   background-color: snow;
   align-items: center;
   justify-content: center;
+}
+
+.goSelect{
+  background-color: aliceblue;
+  color: rgb(117, 163, 232);
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  text-align: center;
+}
+.goSelect:hover{
+  color: whitesmoke;
+  background-color: #6daaec;
 }

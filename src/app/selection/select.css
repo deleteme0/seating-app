@@ -1,11 +1,11 @@
-.dept{
+/* .dept{ */
     /* top: 20px;
     display: flex;
     position: relative; */
-}
+/* } */
 
 .selections{
-    background-color: aquamarine;
+    background-color: rgb(161, 241, 255);
     size: 10px;
 }
 
@@ -30,7 +30,7 @@
 }
 
 .down-button:hover{
-    color: violet;
+    color: rgb(255, 55, 55);
     
 }
 

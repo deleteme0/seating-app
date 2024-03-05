@@ -135,7 +135,7 @@ function Room() {
                 </div>
             </div>
         </div>
-        <a className=" bg-red-500 size-4" href="./selection">Goto selection</a>
+        <a className=" goSelect" href="./selection">Go to selection</a>
         </div>
     );
 }
