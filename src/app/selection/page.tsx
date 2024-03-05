@@ -147,8 +147,7 @@ export default function Selection() {
 
     return (
         <div className=" bg-white text-black align-bottom space-y-5">
-            <SearchBar students={students} setStudents={setStudents} setCount={setCount}  setRooms={setRooms} rooms={rooms}></SearchBar><br></br>
-            <p>Students count {count}</p>
+            <SearchBar students={students} setStudents={setStudents} setCount={setCount}  setRooms={setRooms} rooms={rooms}></SearchBar>
             <div>
             <ShowRooms rooms={rooms} setRooms={setRooms}></ShowRooms>
             </div>
