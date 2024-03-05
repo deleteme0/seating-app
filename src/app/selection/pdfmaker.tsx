@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { jsPDF } from 'jspdf';
 import { renderToString } from "react-dom/server";
+const gimg = require("./image.png");
 
 
 export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
@@ -110,9 +111,9 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
                 id: keys[i],
                 name: keys[i],
                 prompt: keys[i],
-                width: 65,
+                width: 150,
                 align: "center",
-                padding: 20
+                padding: 30
               });
             }
             return result;
@@ -123,7 +124,24 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
             "roomno",
             "rollnos"
           ]);
-          var doc = new jsPDF({ putOnlyUsedFonts: true, orientation: "landscape" });
+
+          var img = new Image();
+        img.src = '/image.png'; // Change this path as per your directory structure
+        var doc = new jsPDF({ putOnlyUsedFonts: true, orientation: "portrait" });
+        img.onload = function() {
+            doc.addImage(img, 'PNG', 10, 10, 200, 50);
+            doc.text("DEPARTMENT: " + gdept.slice(1) + "    YEAR: " + gdept.slice(0, 1), 65, 70);
+            doc.table(70, 80, generateData(), headers, { autoSize: true });
+            doc.save("this.pdf");
+        };
+
+        return;
+
+          var img = new Image();
+          img.src = gimg;
+          console.log(img);
+          var ipp = "<img src=require('./image.png')></img>";
+          doc.addImage(img, 'PNG', 10, 10, 200, 50);
           doc.text("DEPARTMENT: "+gdept.slice(1)+ "    YEAR: "+gdept.slice(0,1),1,7)
           doc.table(1, 10, generateData(), headers, { autoSize: true });
 
