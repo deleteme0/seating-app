@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import SearchBar from './searchbar';
 import ShowRooms from './showrooms';
 import PdfMaker from './pdfmaker';
-
+import './homePageLooks.css';
 
 export default function Selection() {
 
@@ -146,13 +146,13 @@ export default function Selection() {
     //temp
 
     return (
-        <div className="h-screen bg-white text-black align-bottom space-y-5">
-            <SearchBar students={students} setStudents={setStudents} setCount={setCount}  setRooms={setRooms} rooms={rooms}></SearchBar>
+        <div className="h-screen text-black align-bottom space-y-5">
+            <SearchBar students={students} setStudents={setStudents} setCount={setCount} setRooms={setRooms} rooms={rooms}></SearchBar>
             <div>
-            <ShowRooms rooms={rooms} setRooms={setRooms}></ShowRooms>
+                <ShowRooms rooms={rooms} setRooms={setRooms}></ShowRooms>
             </div>
             <PdfMaker rooms={rooms} students={students}></PdfMaker>
-            <a className=" bg-azure-500 size-4" href="./manage">Add depts or rooms</a>
+            <a className="bg-azure-500 size-4" href="./manage">Add depts or rooms</a>
         </div>
-    )
+    );
 }
