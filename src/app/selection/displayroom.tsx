@@ -24,7 +24,7 @@ const SeatButtom = ({handle,shade}:{handle:any,shade:any}) =>{
 }
 
 const getStyle = (num:any) => {
-    if (num == 0){
+    if (num == ""){
         return " bg-blue-500 ";
     }else{
         return " bg-red-500 ";
@@ -34,7 +34,7 @@ const getStyle = (num:any) => {
 const SingleSeat = ({ handle, ind, rooms, activeRoom }: { handle: any, ind: any, rooms: any, activeRoom: any }) => {
     return (
         <div className="bench">
-            <button onClick={() => { handle(ind) }} className={getStyle(rooms[activeRoom].benches[ind][0].selected)}>
+            <button onClick={() => { handle(ind) }} className={getStyle(rooms[activeRoom].benches[ind][0].dept)}>
                 {
                     rooms[activeRoom].benches[ind].map((each: any, index: number) => (
                         <div key={index} style={{ border: '1px solid black', padding: '10px', margin: '10px', backgroundColor: each.dept !== "" ? 'lightgrey' : 'white', width: '150px' }}>
@@ -50,7 +50,7 @@ const SingleSeat = ({ handle, ind, rooms, activeRoom }: { handle: any, ind: any,
 const DoubleSeat = ({ handle, ind, rooms, activeRoom }: { handle: any, ind: any, rooms: any, activeRoom: any }) => {
     return (
         <div className="bench">
-            <button onClick={() => { handle(ind, 0) }} className={getStyle(rooms[activeRoom].benches[ind][0].selected)}>
+            <button onClick={() => { handle(ind, 0) }} className={getStyle(rooms[activeRoom].benches[ind][0].dept)}>
                 {
                     rooms[activeRoom].benches[ind].slice(0, 1).map((each: any, index: number) => (
                         <div key={index} style={{ border: '1px solid black', padding: '10px', margin: '10px', backgroundColor: each.dept !== "" ? 'lightgrey' : 'white', width: '150px' }}>
@@ -59,7 +59,7 @@ const DoubleSeat = ({ handle, ind, rooms, activeRoom }: { handle: any, ind: any,
                     ))
                 }
             </button>
-            <button onClick={() => { handle(ind, 1) }} className={getStyle(rooms[activeRoom].benches[ind][1].selected)}>
+            <button onClick={() => { handle(ind, 1) }} className={getStyle(rooms[activeRoom].benches[ind][1].dept)}>
                 {
                     rooms[activeRoom].benches[ind].slice(1, 2).map((each: any, index: number) => (
                         <div key={index} style={{ border: '1px solid black', padding: '10px', margin: '10px', backgroundColor: each.dept !== "" ? 'lightgrey' : 'white', width: '150px' }}>
@@ -161,7 +161,7 @@ export default function DisplayRoom({rooms,activeRoom,setRooms}:{rooms:any,activ
     }
 
     return(
-        <div>
+        <div className=" border-collapse border-2  border-neutral-500">
             {rooms[activeRoom].benches.map((each:any,i:any)=>{
                 if (each.length == 1){
                     return(

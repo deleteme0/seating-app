@@ -116,7 +116,7 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
                 <button onClick={()=>{handleArrange()}} className=" bg-blue-500">Auto Arrange</button>
             </div>
             <div>
-                <button onClick={()=>{handleClear()}}>Clear Seating</button>
+                <button className=" bg-blue-500 align-center " onClick={()=>{handleClear()}}>Clear Seating</button>
             </div>
         </div>
     )
