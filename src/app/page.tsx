@@ -17,6 +17,13 @@ export default function About() {
   }
 
   return (
+      <div>
+        <div className="page-container">
+        <div className='heading'>
+        EXAM SCHEDULE AUTOMATION SYSTEM
+      </div>
+        </div>
+    
     <div className='body'>
       <div className='login-container'>
         <h2 className='login-header'>Welcome</h2>
@@ -30,9 +37,10 @@ export default function About() {
         {/* <input type="text" name="room" id="room" value={room} onChange={event=>{setRoom(event.target.value)}} /> */}
         </div>
         <div className='login-form-button'>
-          <button type="submit" onClick={handleClick}><b>Login</b></button>
+          <button type="submit" onClick={handleClick} className="login-form-button"><b className='login-form-button'>Login</b></button>
         </div>
       </div>
+    </div>
     </div>
   );
 }
