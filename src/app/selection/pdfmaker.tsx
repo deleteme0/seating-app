@@ -95,7 +95,7 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
 
                 if (temp.length != 0){
                     result.push({
-                        roomno: each.roomno,
+                        roomno: String(each.roomno),
                         rollnos: proper(temp)
                     })
                 }
@@ -111,27 +111,27 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
                 id: keys[i],
                 name: keys[i],
                 prompt: keys[i],
-                width: 150,
+                width: 65,
                 align: "center",
-                padding: 30
+                padding: 20
               });
             }
             return result;
           }
         
           var headers = createHeaders([
-            
             "roomno",
             "rollnos"
           ]);
 
           var img = new Image();
         img.src = '/image.png'; // Change this path as per your directory structure
+        console.log(generateData());
         var doc = new jsPDF({ putOnlyUsedFonts: true, orientation: "portrait" });
         img.onload = function() {
             doc.addImage(img, 'PNG', 10, 10, 200, 50);
             doc.text("DEPARTMENT: " + gdept.slice(1) + "    YEAR: " + gdept.slice(0, 1), 65, 70);
-            doc.table(70, 80, generateData(), headers, { autoSize: true });
+            doc.table(80, 80, generateData(), headers, {autoSize: true});
             doc.save("this.pdf");
         };
 
@@ -144,7 +144,6 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
           doc.addImage(img, 'PNG', 10, 10, 200, 50);
           doc.text("DEPARTMENT: "+gdept.slice(1)+ "    YEAR: "+gdept.slice(0,1),1,7)
           doc.table(1, 10, generateData(), headers, { autoSize: true });
-
           doc.save("this.pdf")
     }
 
