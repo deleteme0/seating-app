@@ -157,7 +157,7 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
     return (
         <div className='bg-slate-500'>
             <div className=' text-center '>
-            <button onClick={handleDownload} className=" down-button">Download</button>
+            <button onClick={handleDownload} hidden={gdept==null} className=" down-button">Download</button>
             </div>
             <div className=" bg-azure-500 grid grid-cols-5 space-y-5 space-x-4 border-spacing-5">
             

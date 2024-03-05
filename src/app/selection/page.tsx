@@ -146,7 +146,7 @@ export default function Selection() {
     //temp
 
     return (
-        <div className=" bg-white text-black align-bottom space-y-5">
+        <div className="h-screen bg-white text-black align-bottom space-y-5">
             <SearchBar students={students} setStudents={setStudents} setCount={setCount}  setRooms={setRooms} rooms={rooms}></SearchBar>
             <div>
             <ShowRooms rooms={rooms} setRooms={setRooms}></ShowRooms>

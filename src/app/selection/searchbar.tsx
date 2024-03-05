@@ -1,6 +1,8 @@
 
 import autoAddEm from "../utililties/autoaddem"
 import './select.css';
+import './cssforshowroom.css';
+
 export default function SearchBar({setCount,setRooms,rooms,students,setStudents}:{setCount:any,setRooms:any,rooms:any,students:any,setStudents:any}) {
 
     const handleClear = () =>{
@@ -69,7 +71,7 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
     }
 
     return (
-        <div className="grid align-middle text-black mb-6 bg-gray-500 md:grid-cols-2 gap-6 gap-x-5 space-x-4">
+        <div className=" searchbar grid align-middle text-black mb-6 bg-gray-500 md:grid-cols-2 gap-6 gap-x-5 space-x-4">
             
             {/* <div className="dept">
                 <label id="department" className="">Department:
@@ -113,10 +115,10 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
                 </label>
             </div> */}
             <div>
-                <button onClick={()=>{handleArrange()}} className=" bg-blue-500">Auto Arrange</button>
+                <button onClick={()=>{handleArrange()}} className=" bg-blue-500 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Auto Arrange</button>
             </div>
             <div>
-                <button className=" bg-blue-500 align-center " onClick={()=>{handleClear()}}>Clear Seating</button>
+                <button className=" bg-blue-500 align-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" onClick={()=>{handleClear()}}>Clear Seating</button>
             </div>
         </div>
     )

@@ -1,0 +1,54 @@
+/* 
+
+.searchbar{
+    background-color: red;
+
+} */
+/* select.css */
+.grid {
+    display: grid;
+}
+
+.grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.bg-gray-500 {
+    background-color: #f3f4f6; /* Change the background color as per your preference */
+    padding: 20px;
+}
+
+.text-black {
+    color: #000; /* Text color */
+}
+
+.mb-6 {
+    margin-bottom: 1.5rem; /* Adjust margin bottom */
+}
+
+.space-x-4 > * + * {
+    margin-left: 1rem; /* Adjust space between grid items */
+}
+
+.align-middle {
+    align-items: center; /* Align items vertically */
+}
+
+/* Style for checkboxes */
+input[type="checkbox"] {
+    margin-right: 0.5rem; /* Adjust space between checkbox and label */
+}
+
+/* Buttons */
+
+
+/* Button hover effect */
+.bg-blue-500:hover {
+    background-color: #2563eb; /* Darker blue on hover */
+}
+
+/* Adjust button alignment */
+.align-center {
+    display: flex;
+    justify-content: center;
+}

@@ -68,3 +68,13 @@ button{
   border: 1px solid black;
 
 }
+
+a{
+  text-align: center;
+}
+
+body{
+  background-color: snow;
+  align-items: center;
+  justify-content: center;
+}

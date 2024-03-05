@@ -19,29 +19,29 @@ export default function About() {
   return (
       <div>
         <div className="page-container">
-        <div className='heading'>
-        EXAM SCHEDULE AUTOMATION SYSTEM
-      </div>
+          <div className='heading'>
+            EXAM SCHEDULE AUTOMATION SYSTEM
+          </div>
         </div>
     
-    <div className='body'>
-      <div className='login-container'>
-        <h2 className='login-header'>Welcome</h2>
-        <div className='login-form-input'>
-          <label>Username:</label>
-          <input type="text" value={username} onChange={event=>{setUsername(event.target.value)}} size={11}/>
+        <div className='body'>
+          <div className='login-container'>
+            {/* <h2 className='login-header'>Welcome</h2> */}
+            <div className='login-form-input'>
+              <label>Username</label>
+              <input type="text" value={username} onChange={event=>{setUsername(event.target.value)}} size={11}/>
+            </div>
+            <div className='login-form-input'>
+              <label>Password</label>
+            <input type="password" onChange={event=>{setPassword(event.target.value)}} value={password} size={11}/>
+            {/* <input type="text" name="room" id="room" value={room} onChange={event=>{setRoom(event.target.value)}} /> */}
+            </div>
+            <div className='login-form-button'>
+              <button type="submit" onClick={handleClick} className="login-form-button"><b className='login-form-button'>Login</b></button>
+            </div>
+            <a href="./selection">Continue without login</a>
+          </div>
         </div>
-        <div className='login-form-input'>
-          <label>Password:</label>
-        <input type="password" onChange={event=>{setPassword(event.target.value)}} value={password} size={11}/>
-        {/* <input type="text" name="room" id="room" value={room} onChange={event=>{setRoom(event.target.value)}} /> */}
-        </div>
-        <div className='login-form-button'>
-          <button type="submit" onClick={handleClick} className="login-form-button"><b className='login-form-button'>Login</b></button>
-        </div>
-        <a href="./selection">Continue without login</a>
       </div>
-    </div>
-    </div>
   );
 }

@@ -90,7 +90,7 @@ function Room() {
     }
 
     return (
-        <div>
+        <div className="body">
             <div className="room-allocate">
                 <div className="container">
                     <div>
