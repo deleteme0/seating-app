@@ -9,7 +9,7 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
 
     const pdfRef = useRef(null);
 
-    const [gdept,setGdept] = useState(null);
+    const [gdept,setGdept] = useState("");
 
     const handleDownload = ()=>{
 
@@ -167,8 +167,8 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
             </div>
             <div className=" bg-azure-500 grid grid-cols-5 space-y-5 space-x-4 border-spacing-5">
             <p>select Dept :
-                <select onChange={handlechange} className="DownloadSelections" name="selectedDownload" id="room">
-                <option value="" disabled selected hidden>--Select--</option>
+                <select value={gdept} onChange={handlechange} className="DownloadSelections" name="selectedDownload" id="room">
+                <option value="" disabled hidden>--Select--</option>
                 {students.map(
                     (each:any,i:any)=>(
                         <option hidden={each.use === false} key={"radio"+each.roomno} id={each} value={each.dept}>{each.dept}</option>

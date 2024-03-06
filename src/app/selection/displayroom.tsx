@@ -154,7 +154,7 @@ export default function DisplayRoom({rooms,activeRoom,setRooms}:{rooms:any,activ
         setRooms(newrooms);
     }
 
-    if (activeRoom == null || rooms[activeRoom].use == false){
+    if (activeRoom == "" || rooms[activeRoom].use == false){
         return (
             <div></div>
         )
