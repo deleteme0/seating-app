@@ -5,7 +5,7 @@
 /* } */
 
 .selections{
-    background-color: rgb(161, 241, 255);
+    background-image: linear-gradient(to right, #f0a0a0, #d395f4);
     size: 10px;
 }
 
@@ -24,7 +24,7 @@
 
 .down-button{
     text-align: center;
-    color: aqua;
+    color: #d395f4;
     font-size: 25px;
     
 }
@@ -32,5 +32,8 @@
 .down-button:hover{
     color: rgb(255, 55, 55);
     
+}
+.DownloadSelections{
+    background-image: linear-gradient(to right, #f0a0a0, #d395f4);
 }
 
