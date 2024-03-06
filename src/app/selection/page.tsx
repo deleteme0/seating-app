@@ -152,7 +152,7 @@ export default function Selection() {
             <ShowRooms rooms={rooms} setRooms={setRooms}></ShowRooms>
             
             <PdfMaker rooms={rooms} students={students}></PdfMaker>
-            <a className="bg-azure-500 size-4" href="./manage">Add depts or rooms</a>
+            <a className=" adddept bg-azure-500 size-4" href="./manage">Add depts or rooms</a>
         </div>
     );
 }

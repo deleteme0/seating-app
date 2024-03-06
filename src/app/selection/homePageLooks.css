@@ -1,6 +1,16 @@
 body {
+    align-items: center;
+    text-align: center;
     background-color: white;
     margin: 0; /* Reset default body margin */
     padding: 0; /* Reset default body padding */
     background-image: linear-gradient(to right, #1d0374, #4a0071);
+}
+
+.adddept{
+    background-color: aliceblue;
+    padding: 5px;
+    top: 10px;
+    position: relative;
+
 }
