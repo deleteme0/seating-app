@@ -115,10 +115,10 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
                 </label>
             </div> */}
             <div>
-                <button onClick={()=>{handleArrange()}} className=" bg-blue-500 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Auto Arrange</button>
+                <button onClick={()=>{handleArrange()}} className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Auto Arrange</button>
             </div>
             <div>
-                <button className=" bg-blue-500 align-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" onClick={()=>{handleClear()}}>Clear Seating</button>
+                <button className=" bg-blue-500 align-center hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" onClick={()=>{handleClear()}}>Clear Seating</button>
             </div>
         </div>
     )
