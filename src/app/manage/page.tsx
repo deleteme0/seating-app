@@ -1,20 +1,37 @@
 
 'use client';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import '../login/loginpage.css';
 import './room.css';
+import createMat from "../components/createmat";
+import MatStyle from "../components/matstyle";
 function Room() {
 
-    const [room,setRoom]=useState("");
+    const [roomno,setRoomno]=useState("");
     const [ds,setds]=useState("");
     const [ss,setss]=useState("");
+    const [lim,setlim]=useState("");
+
+    const [room,setRoom] = useState([]);
+
     const [dept,setDept]=useState("");
     const [sem,setSem]=useState("");
     const [rollno,setrollno]=useState("");
 
+    useEffect(()=>{
+
+        const nowroom = createMat(lim,ds,ss);
+
+        if (nowroom != -1){
+            setRoom(nowroom)
+        }else{
+            setRoom([])
+        }
+    },[ds,ss,lim])
+
     const handleClick = () => {
         //room
-        console.log(room,ss,ds);
+        console.log(roomno,ss,ds);
 
         async function addRoom(){
             const ret = await fetch(process.env.NEXT_PUBLIC_API+"/manage/hall",{
@@ -24,7 +41,7 @@ function Room() {
                     // 'Content-Type': 'application/x-www-form-urlencoded',
                   },
                   body: JSON.stringify({
-                    roomno:room,
+                    roomno:roomno,
                     single:ss,
                     double:ds
                   })
@@ -38,7 +55,7 @@ function Room() {
         }
 
         addRoom();
-        setRoom("");
+        setRoomno("");
         setds("");
         setss("");
     }
@@ -98,16 +115,22 @@ function Room() {
                     </div>
                     <div className="room">
                         <label>Room Number</label>
-                        <input type="text" name="room" id="room" value={room} onChange={event=>{setRoom(event.target.value)}} />
+                        <input type="text" name="room" id="room" value={roomno} onChange={event=>{setRoomno(event.target.value)}} />
                     </div>
                     <div className="dseat">
-                        <label>Double Seat</label>
+                        <label>Row</label>
                         <input type="number" name="Double" id="double" value={ds} onChange={event=>{setds(event.target.value)}} />
                     </div>
                     <div className="sseat">
-                        <label>Single Seat</label>
+                        <label>Col</label>
                         <input type="number" name="Single" id="single" value={ss} onChange={event=>{setss(event.target.value)}} />
                     </div>
+                    <div className="sseat">
+                        <label>Limit</label>
+                        <input type="number" name="Single" id="single" value={lim} onChange={event=>{setlim(event.target.value)}} />
+                    </div>
+
+                    <MatStyle rooms={room} setRoom={setRoom} ></MatStyle>
                     <div className='login-form-button'>
                   <button type="submit" onClick={handleClick}><b>Submit</b></button>
                 </div>
@@ -115,7 +138,7 @@ function Room() {
             <div className="student">
                 <div className="container2">
                 <div>
-                    <h1>Student's Data</h1>
+                    <h1>Students Data</h1>
                     </div>
                     <div className="dept">
                         <label>Department</label>

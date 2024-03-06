@@ -1,6 +1,7 @@
 "use client";
 import { useState } from 'react';
 import './loginpage.css';
+import MatStyle from './components/matstyle';
 //import { useHistory } from 'react-router-dom'; // Assuming you are using React Router
 
 export default function About() {
