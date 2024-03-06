@@ -146,11 +146,11 @@ export default function Selection() {
     //temp
 
     return (
-        <div className="h-screen text-black align-bottom space-y-5">
+        <div className=" text-black">
             <SearchBar students={students} setStudents={setStudents} setCount={setCount} setRooms={setRooms} rooms={rooms}></SearchBar>
-            <div>
-                <ShowRooms rooms={rooms} setRooms={setRooms}></ShowRooms>
-            </div>
+            
+            <ShowRooms rooms={rooms} setRooms={setRooms}></ShowRooms>
+            
             <PdfMaker rooms={rooms} students={students}></PdfMaker>
             <a className="bg-azure-500 size-4" href="./manage">Add depts or rooms</a>
         </div>

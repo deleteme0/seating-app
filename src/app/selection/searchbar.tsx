@@ -73,7 +73,7 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
     }
 
     return (
-        <div className=" searchbar grid align-middle text-black mb-6 bg-gray-500 md:grid-cols-2 gap-6 gap-x-5 space-x-4">
+        <div className=" searchbar grid align-middle text-black bg-gray-500 md:grid-cols-2 gap-x-5 space-x-4">
             
             {/* <div className="dept">
                 <label id="department" className="">Department:
@@ -120,10 +120,6 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
         Auto Arrange
     </button>
 </div>
-
-
-
-
             <div>
                 <button onClick={()=>{handleClear()}} 
                 className="bg-gradient-hover bg-gradient-move hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded transition duration-300 ease-in-out">Clear Seating</button>
