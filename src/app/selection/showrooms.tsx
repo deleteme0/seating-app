@@ -19,7 +19,7 @@ export default function ShowRooms({rooms,setRooms}:{rooms:any,setRooms:any}) {
                         <option value="" disabled hidden>--Select--</option>
                         {rooms.map(
                             (each: any, i: any) => (
-                                <option hidden={each.use === false} value={i}>{each.roomno}</option>
+                                <option key={"somekey"+i} hidden={each.use === false} value={i}>{each.roomno}</option>
                             )
                         )}
                     </select>

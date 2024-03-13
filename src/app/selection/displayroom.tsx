@@ -31,14 +31,14 @@ const getStyle = (num:any) => {
     }
 }
 
-const SingleSeat = ({ handle, ind, rooms, activeRoom }: { handle: any, ind: any, rooms: any, activeRoom: any }) => {
+const SingleSeat = ({ info,selected,handle, ind, rooms, activeRoom }: { info:any,selected:boolean,handle: any, ind: any, rooms: any, activeRoom: any }) => {
     return (
         <div className="bench">
             <button onClick={() => { handle(ind) }} className={getStyle(rooms[activeRoom].benches[ind][0].dept)}>
                 {
                     rooms[activeRoom].benches[ind].map((each: any, index: number) => (
-                        <div key={index} style={{ border: '1px solid black', padding: '10px', margin: '10px', backgroundColor: each.dept !== "" ? 'lightgrey' : 'white', width: '150px' }}>
-                            {each.dept !== "" ? `${each.dept} ${each.rollno}` : "Available"}
+                        <div key={index+"ss"} style={{ border: '1px solid black', padding: '10px', margin: '10px', backgroundColor: each.dept !== "" ? 'lightgrey' : 'white', width: '150px' }}>
+                            {selected ? `${info}` : "Available"}
                         </div>
                     ))
                 }
@@ -47,13 +47,30 @@ const SingleSeat = ({ handle, ind, rooms, activeRoom }: { handle: any, ind: any,
     );
 }
 
+const HybridSeat = ({info}) => {
+    return(
+        <div className="  flex flex-row justify-center bg-amber-600 border ">
+            {
+                info.map((seat,i)=>{
+                    return(
+                        <button key={i+seat.dept+seat.rollno} style={{border: '1px solid black', padding: '10px', margin: '10px',backgroundColor: seat.dept == ""? 'blue' : 'red'}}>
+                            {seat.dept !== ""? seat.dept +" "+  seat.rollno : "Available"}
+                        </button>
+                    )
+                })
+            
+}
+        </div>
+    )
+}
+
 const DoubleSeat = ({ handle, ind, rooms, activeRoom }: { handle: any, ind: any, rooms: any, activeRoom: any }) => {
     return (
         <div className="bench">
             <button onClick={() => { handle(ind, 0) }} className={getStyle(rooms[activeRoom].benches[ind][0].dept)}>
                 {
                     rooms[activeRoom].benches[ind].slice(0, 1).map((each: any, index: number) => (
-                        <div key={index} style={{ border: '1px solid black', padding: '10px', margin: '10px', backgroundColor: each.dept !== "" ? 'lightgrey' : 'white', width: '150px' }}>
+                        <div key={index+"ds1"} style={{ border: '1px solid black', padding: '10px', margin: '10px', backgroundColor: each.dept !== "" ? 'lightgrey' : 'white', width: '150px' }}>
                             {each.dept !== "" ? `${each.dept} ${each.rollno}` : "Available"}
                         </div>
                     ))
@@ -62,7 +79,7 @@ const DoubleSeat = ({ handle, ind, rooms, activeRoom }: { handle: any, ind: any,
             <button onClick={() => { handle(ind, 1) }} className={getStyle(rooms[activeRoom].benches[ind][1].dept)}>
                 {
                     rooms[activeRoom].benches[ind].slice(1, 2).map((each: any, index: number) => (
-                        <div key={index} style={{ border: '1px solid black', padding: '10px', margin: '10px', backgroundColor: each.dept !== "" ? 'lightgrey' : 'white', width: '150px' }}>
+                        <div key={index+"ds2"} style={{ border: '1px solid black', padding: '10px', margin: '10px', backgroundColor: each.dept !== "" ? 'lightgrey' : 'white', width: '150px' }}>
                             {each.dept !== "" ? `${each.dept} ${each.rollno}` : "Available"}
                         </div>
                     ))
@@ -161,17 +178,42 @@ export default function DisplayRoom({rooms,activeRoom,setRooms}:{rooms:any,activ
     }
 
     return(
-        <div className=" border-collapse border-2  border-neutral-500">
+        <div className={" flex flex-col align-middle border-collapse border-2  border-neutral-500"}>
             {rooms[activeRoom].benches.map((each:any,i:any)=>{
-                if (each.length == 1){
-                    return(
-                        <SingleSeat ind={i} rooms={rooms} handle={handleSingle} activeRoom={activeRoom}/>
-                    )
-                }else{
-                    return (
-                        <DoubleSeat ind={i} rooms={rooms} handle={handleDouble} activeRoom={activeRoom}/>
-                    )
-                }
+                return(
+                // each.map((bench,j)=>{
+                //     if (bench.length == 1){
+                //         console.log(bench)
+                //         return(
+                //         <SingleSeat key={i+j+"ssmain"+bench[0]} ind={i} rooms={rooms} selected={bench[0].dept == ""} info={bench[0].dept} handle={handleSingle} activeRoom={activeRoom}/>
+                //         )
+                //     }
+                //     else{
+                //         return(
+                //         <DoubleSeat key={i+j+"dsmain"} ind={i} rooms={rooms} handle={handleDouble} activeRoom={activeRoom}/>
+                //         )
+                //     }
+                // })
+                
+                <div key={i+"rowboix"} className={`grid justify-center gap-3 grid-cols-3`}>
+                    {
+                        each.map((bench,j)=>{
+                            return(
+                                <HybridSeat key={i+j+"hs"}info={bench} ></HybridSeat>
+                            )
+                        })
+                    }
+                </div>
+                )
+                // if (each.length == 1){
+                //     return(
+                //         <SingleSeat key={i+"ssmain"} ind={i} rooms={rooms} handle={handleSingle} activeRoom={activeRoom}/>
+                //     )
+                // }else{
+                //     return (
+                //         <DoubleSeat key={i+"dsmain"} ind={i} rooms={rooms} handle={handleDouble} activeRoom={activeRoom}/>
+                //     )
+                // }
             })}
         </div>
     )

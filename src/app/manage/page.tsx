@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import './room.css';
 import createMat from "../components/createmat";
 import MatStyle from "../components/matstyle";
+import { doGetRooms,doPutRooms } from "../utililties/webutils";
+
 function Room() {
 
     const [roomno,setRoomno]=useState("");
@@ -34,24 +36,47 @@ function Room() {
         console.log(roomno,ss,ds);
 
         async function addRoom(){
-            const ret = await fetch(process.env.NEXT_PUBLIC_API+"/manage/hall",{
-                method:"POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    // 'Content-Type': 'application/x-www-form-urlencoded',
-                  },
-                  body: JSON.stringify({
-                    roomno:roomno,
-                    single:ss,
-                    double:ds
-                  })
-            })
 
-            if (ret.status == 200){
-                alert("Added succesfully");
-            }else{
-                alert("Alreasdy exists");
+            //Remove unselected area
+            var myRoom = room.slice();
+
+            for(var i =0;i<myRoom.length;i++){
+                for(var j=0;j<myRoom[i].length;j++){
+                    // var cnt = 0;
+                    // for(var k=0;k<myRoom[i][j].length;j++){
+
+                    //     if (myRoom[j][j][k].selected == 0){
+                    //         cnt += 1;
+                    //     }
+                    // }
+                    myRoom[i][j] = myRoom[i][j].filter((element)=> element.selected == 1).slice()
+                }
             }
+
+            console.log(myRoom)
+
+            const ret = await doPutRooms(roomno,myRoom);
+
+            
+
+            // const ret = await fetch(process.env.NEXT_PUBLIC_API+"/manage/hall",{
+            //     method:"POST",
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //         // 'Content-Type': 'application/x-www-form-urlencoded',
+            //       },
+            //       body: JSON.stringify({
+            //         roomno:roomno,
+            //         single:ss,
+            //         double:ds
+            //       })
+            // })
+
+            // if (ret.status == 200){
+            //     alert("Added succesfully");
+            // }else{
+            //     alert("Alreasdy exists");
+            // }
         }
 
         addRoom();

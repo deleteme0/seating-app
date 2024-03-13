@@ -7,7 +7,7 @@ export default function MatStyle({rooms,setRoom}){
     }else{
          edit = false;
     }
-    console.log(rooms.length)
+    //console.log(rooms.length)
     if (rooms.length == 0){
         return (
             <></>
@@ -21,15 +21,18 @@ export default function MatStyle({rooms,setRoom}){
     //     [[{dept:"",rollno:"",selected:0}],[{dept:"",rollno:"",selected:0}],[{dept:"",rollno:"",selected:0}]]
     // ]
 
-    const handleDaClick = (i,j,k) =>{
+    const handleDaClick = (i:number,j:number,k:number) =>{
 
         var newrooms = rooms.slice();
-        
+
+        console.log(i,j,k);
+
         if (newrooms[i][j][k].selected == 1){
             newrooms[i][j][k].selected = 0
         } else{
             newrooms[i][j][k].selected = 1
         }
+
         console.log(newrooms)
 
         
@@ -42,11 +45,11 @@ export default function MatStyle({rooms,setRoom}){
         <div className=" flex flex-col">
 
         {rooms.map((row,i) =>(
-            <div className=" flex flex-row" >
+            <div key={"row"+i} className=" flex flex-row px-1 py-1 " >
             {row.map((bench,j) =>(
-                <div className="flex flex-row" >
+                <div key={"bench"+i+j} className="flex flex-row border rounded px-2 py-2 bg-amber-800 " >
                 {bench.map((seat,k) =>(
-                    <button className=" w-5 h-5" onClick={()=>handleDaClick(i,j,k)} style={{backgroundColor: seat.selected == 0 ? "red" : "blue" }}>1</button>
+                    <button className="  " key={"thisis"+i+j+k} onClick={()=>handleDaClick(i,j,k)} style={{backgroundColor: seat.selected == 0 ? "red" : "blue" }}>{seat.selected}</button>
                 ))}
                 </div>
             ))}

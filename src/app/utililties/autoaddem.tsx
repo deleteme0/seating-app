@@ -17,6 +17,13 @@ export default function autoAddEm (rooms:any,students:any,skipbench:any) {
 
     var myRoom = rooms.slice();
 
+    // myRoom.sort((element) => {
+    //     if (element.use == false){
+    //         return 9;
+    //     }
+    //     return -1*(element.benches.length);
+    // })
+
     const dept = students.dept;
     //var myStudents = students.slice();
     var myStudents = structuredClone(students);
@@ -28,97 +35,143 @@ export default function autoAddEm (rooms:any,students:any,skipbench:any) {
 
     var gotLast = false;
 
-    myRoom.forEach((element: any) => {
+    // myRoom.forEach((element1: any) => {
 
-        if (element.use == false){
-            return;
-        }
+    //     if (element1.use == false){
+    //         return;
+    //     }
 
-        element.benches.forEach((bench:any) => {
-            var skip = false;
+    //     element1.benches.forEach((element)=>(
+    //     element.forEach((bench:any) => {
+    //         var skip = false;
 
-            //reset benches
-            if (bench[0].dept == dept){
-                bench[0].dept = "";
-            }
-            if (bench.length > 1){
-                if (bench[1].dept == dept){
-                    bench[1].dept = "";
-                }
-            }
+    //         //reset benches
+    //         if (bench[0].dept == dept){
+    //             bench[0].dept = "";
+    //         }
+    //         if (bench.length > 1){
+    //             if (bench[1].dept == dept){
+    //                 bench[1].dept = "";
+    //             }
+    //         }
             
-            //take count
-            if (bench[0].dept != "" ){
-                if (bench.length == 1){
-                    skip = true;
-                }
-                else if (bench[1].dept != ""){
-                    skip= true;
-                }
-            }
+    //         //take count
+    //         if (bench[0].dept != "" ){
+    //             if (bench.length == 1){
+    //                 skip = true;
+    //             }
+    //             else if (bench[1].dept != ""){
+    //                 skip= true;
+    //             }
+    //         }
 
-            if (skipbench == true){
-                if (gotLast == true){
-                    gotLast = false;
-                }else{
-                    if (skip == false){
-                        seatingCapacity += 1;
-                        noOfBenches += 1;
-                        gotLast = true;
-                    }else{
-                        gotLast= false;
-                    }
-                }
-            }
-            else if (!skip){
+    //         if (skipbench == true){
+    //             if (gotLast == true){
+    //                 gotLast = false;
+    //             }else{
+    //                 if (skip == false){
+    //                     seatingCapacity += 1;
+    //                     noOfBenches += 1;
+    //                     gotLast = true;
+    //                 }else{
+    //                     gotLast= false;
+    //                 }
+    //             }
+    //         }
+    //         else if (!skip){
                 
-                seatingCapacity += 1;
-                noOfBenches += 1;
-            }
-        })
-    });
-    console.log(totalStudents,seatingCapacity);
-    if (totalStudents > seatingCapacity){
-        return -1;
-    }
+    //             seatingCapacity += 1;
+    //             noOfBenches += 1;
+    //         }
+    //     })
+    //     ))
+    // });
 
-    //ARRANGEMENT DONE BELOW
-
-    myRoom.forEach((room:any) => {
+    myRoom.forEach((room)=>{
         if (room.use == false){
             return;
         }
-        gotLast = false;
-        room.benches.forEach((bench:any)=>{
+        if (myStudents.rollnos.length == 0){
+            return;
+        }
 
-            if (myStudents.rollnos.length == 0){
-                return;
-            }
+        for(var j=0;j<room.benches[0].length;j++){
+            gotLast = false;
+            for(var i=0;i<room.benches.length;i++){
 
-            if (gotLast && skipbench){
-                gotLast = false;
-                return;
-            }
+                var gotthis = false;
 
-            if (bench[0].dept == ''){
-                bench[0].dept = dept;
-                bench[0].rollno = myStudents.rollnos.shift();
-                gotLast = true;
-            }else{
-                if (bench.length == 1){
-                    return;
+                if (skipbench && gotLast){
+                    gotLast = false;
+                    continue;
                 }
+                
+                room.benches[i][j].forEach((bench)=>{
 
-                if (bench[1].dept == ''){
-                    console.log('here');
-                    bench[1].dept = dept;
-                    bench[1].rollno = myStudents.rollnos.shift();
-                    gotLast = true;
-                }
+                    if (gotthis){
+                        return;
+                    }
+
+                    if (myStudents.rollnos.length == 0){
+                        return;
+                    }
+
+                    if (bench.dept == dept || bench.dept == ""){
+                        bench.dept = dept
+                        bench.rollno = myStudents.rollnos.shift();
+                        gotLast = true;
+                        gotthis = true
+                    }
+                })
             }
-        })
+        }
     })
+
+    if (myStudents.rollnos.length != 0){
+        return -1;
+    }
+
+    // console.log(totalStudents,seatingCapacity);
+    // if (totalStudents > seatingCapacity){
+    //     return -1;
+    // }
+
+    // //ARRANGEMENT DONE BELOW
+    // else{
+    // myRoom.forEach((room:any) => {
+    //     if (room.use == false){
+    //         return;
+    //     }
+    //     gotLast = false;
+    //     room.benches.forEach((bench:any)=>{
+
+    //         if (myStudents.rollnos.length == 0){
+    //             return;
+    //         }
+
+    //         if (gotLast && skipbench){
+    //             gotLast = false;
+    //             return;
+    //         }
+
+    //         if (bench[0].dept == ''){
+    //             bench[0].dept = dept;
+    //             bench[0].rollno = myStudents.rollnos.shift();
+    //             gotLast = true;
+    //         }else{
+    //             if (bench.length == 1){
+    //                 return;
+    //             }
+
+    //             if (bench[1].dept == ''){
+    //                 console.log('here');
+    //                 bench[1].dept = dept;
+    //                 bench[1].rollno = myStudents.rollnos.shift();
+    //                 gotLast = true;
+    //             }
+    //         }
+    //     })
+    // })
     return myRoom;
-
-
-}
+    
+    }

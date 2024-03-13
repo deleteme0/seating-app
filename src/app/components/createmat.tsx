@@ -14,7 +14,7 @@ export default function createMat (lim,r,c){
     const each ={
         dept:"",
         rollno:"",
-        selected:""
+        selected:1
     }
 
     for (var i=0;i<r;i++){
@@ -23,7 +23,7 @@ export default function createMat (lim,r,c){
             var currdis = [];
 
             for(var k=0;k<lim;k++){
-                currdis.push(each)
+                currdis.push(JSON.parse(JSON.stringify(each)))
             }
             curr.push(currdis);
         }

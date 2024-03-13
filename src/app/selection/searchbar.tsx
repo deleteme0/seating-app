@@ -11,14 +11,14 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
 
         var myrooms = rooms.slice();
 
-        myrooms.forEach(element => {
-            element.benches.forEach(bench => {
-
-                bench[0].dept = "";
-
-                if (bench.length > 1){
-                    bench[1].dept = "";
-                }
+        myrooms.forEach(room => {
+            room.benches.forEach(row =>{
+                row.forEach(bench =>{
+                    bench.forEach(seat =>{
+                        seat.dept = ""
+                        seat.rollno = ""
+                    })
+                })
             })
         });
 
@@ -26,8 +26,24 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
     }
 
     const handleArrange = () =>{
-        var ourRoom = rooms.slice();
-        students.forEach((each:any) => {
+        var ourRoom = structuredClone(rooms.slice());
+
+        var myStudents = students.slice();
+
+        var stucount = 0;
+        var benchcount =0;
+
+        console.log(myStudents)
+
+        myStudents.sort((e1,e2) =>{
+            
+            return e2.rollnos.length - e1.rollnos.length;
+
+        })
+
+        console.log(myStudents)
+
+        myStudents.forEach((each:any) => {
             if (each.use == false){
                 return;
             }
@@ -42,9 +58,11 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
             alert("Hall space not enough")
             return;
         }
-        console.log(ourRoom);
+        else{
+            console.log(ourRoom);
 
-        setRooms(ourRoom);
+            setRooms(ourRoom);
+        }
     }
 
     const handleRoomChange = ({rooms,i}:{rooms:any,i:any}) => {

@@ -81,19 +81,28 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
             rooms.forEach(each => {
                 var temp = []
 
-                each.benches.forEach(bench => {
+                each.benches.forEach(row => {
+                    
+                    row.forEach((bench)=>{
 
-                    if (bench[0].dept == gdept){
-                        temp.push(bench[0].rollno)
-                    }else{
-                        if (bench.length > 1){
-                            if (bench[1].dept == gdept){
-                                temp.push(bench[1].rollno)
+                        bench.forEach((seat)=>{
+                            if (seat.dept == gdept){
+                                temp.push(seat.rollno)
                             }
-                        }
-                    }
-                })
+                        })
 
+                    // if (bench[0].dept == gdept){
+                    //     temp.push(bench[0].rollno)
+                    // }else{
+                    //     if (bench.length > 1){
+                    //         if (bench[1].dept == gdept){
+                    //             temp.push(bench[1].rollno)
+                    //         }
+                    //     }
+                    // }
+                    })
+                })
+                temp.sort();
                 if (temp.length != 0){
                     result.push({
                         roomno: String(each.roomno),
@@ -152,7 +161,7 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
 
         setGdept(event.target.value);
     }   
-    console.log(students)
+    //console.log(students)
     
     return (
         <div className='bg-slate-500'>
@@ -171,7 +180,7 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
                 <option value="" disabled hidden>--Select--</option>
                 {students.map(
                     (each:any,i:any)=>(
-                        <option hidden={each.use === false} key={"radio"+each.roomno} id={each} value={each.dept}>{each.dept}</option>
+                        <option hidden={each.use === false} key={"radio"+i+"downrad"} id={each} value={each.dept}>{each.dept}</option>
                         /*<label key={"radiol"+each.dept} hidden={each.use == false}>*/
                         /*<input type="radio" name="selectedRoom" key={"radio"+each.roomno} id={each} onChange={handlechange} value={each.dept}/>*/
                         /*{each.dept}</label>*/

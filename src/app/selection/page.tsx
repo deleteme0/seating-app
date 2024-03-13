@@ -5,6 +5,7 @@ import ShowRooms from './showrooms';
 import PdfMaker from './pdfmaker';
 import './homePageLooks.css';
 import MatStyle from '../components/matstyle';
+import { doGetRooms,doGetStudents } from '../utililties/webutils';
 
 export default function Selection() {
 
@@ -12,7 +13,7 @@ export default function Selection() {
     const [students,setStudents] = useState([])
     const [rooms,setRooms] = useState([])
 
-    const local = true;
+    const local = false;
     //const [students,setStudents] = useState([])
     //const [rooms,setRooms] = useState([])
 
@@ -48,11 +49,15 @@ export default function Selection() {
                         doublehalf:3,
                         doubletaken:6,
                         benches:[
+                            [[{dept:"",rollno:"",selected:0}],
                             [{dept:"",rollno:"",selected:0}],
-                            [{dept:"",rollno:"",selected:0}],
-                            [{dept:"",rollno:"",selected:0}],
+                            [{dept:"",rollno:"",selected:0}]],
+                            [[{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
                             [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
-                            [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}]
+                            [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}]],
+                            [[{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                            [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                            [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}]]
                         ]
                     },
                     {
@@ -64,14 +69,15 @@ export default function Selection() {
                         doublehalf:3,
                         doubletaken:6,
                         benches:[
+                            [[{dept:"",rollno:"",selected:0}],
                             [{dept:"",rollno:"",selected:0}],
-                            [{dept:"",rollno:"",selected:0}],
-                            [{dept:"",rollno:"",selected:0}],
+                            [{dept:"",rollno:"",selected:0}]],
+                            [[{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
                             [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                            [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}]],
+                            [[{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
                             [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
-                            [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
-                            [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
-                            [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                            [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}]]
                         ]
                     },
                     {
@@ -83,14 +89,15 @@ export default function Selection() {
                         doublehalf:3,
                         doubletaken:6,
                         benches:[
+                            [[{dept:"",rollno:"",selected:0}],
                             [{dept:"",rollno:"",selected:0}],
-                            [{dept:"",rollno:"",selected:0}],
-                            [{dept:"",rollno:"",selected:0}],
+                            [{dept:"",rollno:"",selected:0}]],
+                            [[{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
                             [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                            [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}]],
+                            [[{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
                             [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
-                            [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
-                            [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
-                            [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                            [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}]]
                         ]
                     },
                     {
@@ -102,14 +109,15 @@ export default function Selection() {
                         doublehalf:3,
                         doubletaken:6,
                         benches:[
+                            [[{dept:"",rollno:"",selected:0}],
                             [{dept:"",rollno:"",selected:0}],
-                            [{dept:"",rollno:"",selected:0}],
-                            [{dept:"",rollno:"",selected:0}],
+                            [{dept:"",rollno:"",selected:0}]],
+                            [[{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
                             [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                            [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}]],
+                            [[{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
                             [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
-                            [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
-                            [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
-                            [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                            [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}]]
                         ]
                     },
                     ]
@@ -120,28 +128,29 @@ export default function Selection() {
         }
 
         async function doGet(){
-            let gstudents = await fetch(process.env.NEXT_PUBLIC_API+"/manage/student",{
-                method:"GET"
-            })
-            const gdata = await gstudents.json();
-            
+            // let gstudents = await fetch(process.env.NEXT_PUBLIC_API+"/manage/student",{
+            //     method:"GET"
+            // })
+            // const gdata = await gstudents.json();
+            const gdata = await doGetStudents();
             setStudents(gdata);
         }
 
-        async function doGetRooms() {
+        async function getRooms() {
 
             
             
-            let grooms = await fetch(process.env.NEXT_PUBLIC_API+'/manage/hall',{
-                method:"GET"
-            })
+            // let grooms = await fetch(process.env.NEXT_PUBLIC_API+'/manage/hallnew',{
+            //     method:"GET"
+            // })
 
-            const data = await grooms.json();
+            // const data = await grooms.json();
+            const data = await doGetRooms();
             console.log(data);
             setRooms(data);
         }
         doGet();
-        doGetRooms();
+        getRooms();
     },[])
     
     //temp
