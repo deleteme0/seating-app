@@ -48,8 +48,19 @@ const SingleSeat = ({ info,selected,handle, ind, rooms, activeRoom }: { info:any
 }
 
 const HybridSeat = ({info}) => {
+
+    if (info.length == 0){
+        return(
+            <div className="flex flex-row justify-center border-2 border-zinc-950 p-2 h-30 w-200 ">
+                <button  style={{border: '1px solid black', padding: '10px', margin: '10px'}}>
+                            Available
+                        </button>
+            </div>
+        )
+    }
+
     return(
-        <div className="  flex flex-row justify-center bg-amber-600 border ">
+        <div className="  flex flex-row justify-center border-2 border-zinc-950 p-2 h-30 w-200  ">
             {
                 info.map((seat,i)=>{
                     return(
@@ -178,7 +189,7 @@ export default function DisplayRoom({rooms,activeRoom,setRooms}:{rooms:any,activ
     }
 
     return(
-        <div className={" flex flex-col align-middle border-collapse border-2  border-neutral-500"}>
+        <div className={" flex flex-col align-middle border-collapse border-2 p-5 border-neutral-500 overflow-scroll "}>
             {rooms[activeRoom].benches.map((each:any,i:any)=>{
                 return(
                 // each.map((bench,j)=>{
@@ -195,7 +206,7 @@ export default function DisplayRoom({rooms,activeRoom,setRooms}:{rooms:any,activ
                 //     }
                 // })
                 
-                <div key={i+"rowboix"} className={`grid justify-center gap-3 grid-cols-3`}>
+                <div key={i+"rowboix"} className={`flex justify-center p-2 gap-3  `}>
                     {
                         each.map((bench,j)=>{
                             return(

@@ -156,7 +156,7 @@ export default function Selection() {
     //temp
 
     return (
-        <div className=" text-black">
+        <div className=" text-black flex flex-col ">
             <SearchBar students={students} setStudents={setStudents} setCount={setCount} setRooms={setRooms} rooms={rooms}></SearchBar>
             
             <ShowRooms rooms={rooms} setRooms={setRooms}></ShowRooms>
