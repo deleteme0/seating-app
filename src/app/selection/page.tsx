@@ -13,7 +13,7 @@ export default function Selection() {
     const [students,setStudents] = useState([])
     const [rooms,setRooms] = useState([])
 
-    const local = false;
+    const local = true;
     //const [students,setStudents] = useState([])
     //const [rooms,setRooms] = useState([])
 
@@ -44,6 +44,7 @@ export default function Selection() {
                         roomno: 102,
                         use: false,
                         single:10,
+                        capacity:20,
                         singletaken:4,
                         doublefull:10,
                         doublehalf:3,
@@ -64,6 +65,7 @@ export default function Selection() {
                         roomno: 105,
                         use: false,
                         single:10,
+                        capacity:20,
                         singletaken:4,
                         doublefull:10,
                         doublehalf:3,
@@ -84,6 +86,7 @@ export default function Selection() {
                         roomno: 107,
                         use: false,
                         single:10,
+                        capacity:20,
                         singletaken:4,
                         doublefull:10,
                         doublehalf:3,
@@ -103,6 +106,7 @@ export default function Selection() {
                     {
                         roomno: 108,
                         use: false,
+                        capacity:20,
                         single:10,
                         singletaken:4,
                         doublefull:10,

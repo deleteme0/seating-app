@@ -116,7 +116,7 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
                 {rooms.map(
                     (each:any,i:any)=>(
                         <label key={i}>
-                        {each.roomno}: <input type="checkbox" id={i} className="switcher" name="room" onChange={() => {handleRoomChange({rooms,i})}}/>
+                        {each.roomno}: <input type="checkbox" id={i} className="switcher" name="room" onChange={() => {handleRoomChange({rooms,i})}}/>{"Size : " +each.capacity}
                         </label>
                     )
                 )}
