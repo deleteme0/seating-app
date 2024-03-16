@@ -37,3 +37,9 @@
     background-image: linear-gradient(to right, #f0a0a0, #d395f4);
 }
 
+.modify{
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+    
+}

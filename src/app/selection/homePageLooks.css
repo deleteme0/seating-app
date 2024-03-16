@@ -1,6 +1,19 @@
 body {
     background-color: white;
+    text-align: center;
     margin: 0; /* Reset default body margin */
     padding: 0; /* Reset default body padding */
     background-image: linear-gradient(to right, #1d0374, #4a0071);
+}
+
+.addDeptRoom{
+    color:#1d0374;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    background-color: azure;
+}
+.addDeptRoom{
+    width: fit-content;
 }
