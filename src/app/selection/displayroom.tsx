@@ -64,7 +64,7 @@ const HybridSeat = ({info}) => {
             {
                 info.map((seat,i)=>{
                     return(
-                        <button key={i+seat.dept+seat.rollno} style={{border: '1px solid black', padding: '10px', margin: '10px',backgroundColor: seat.dept == ""? 'blue' : 'red'}}>
+                        <button key={i+seat.dept+seat.rollno} style={{border: '1px solid black', padding: '10px', margin: '10px',backgroundColor: seat.dept == ""? '#0ea5e9' : '#e11d48'}}>
                             {seat.dept !== ""? seat.dept +" "+  seat.rollno : "Available"}
                         </button>
                     )
@@ -226,6 +226,8 @@ export default function DisplayRoom({rooms,activeRoom,setRooms}:{rooms:any,activ
                 //     )
                 // }
             })}
+            <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+                Edit</button>
         </div>
     )
 }
