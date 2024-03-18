@@ -184,6 +184,7 @@ function Room() {
             </div>
         </div>
         <a className=" goSelect" href="./selection">Go to selection</a>
+        <a className=" goSelect" href="./modify">Modify Existing</a>
         </div>
     );
 }
