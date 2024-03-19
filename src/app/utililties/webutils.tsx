@@ -10,6 +10,18 @@ async function doGetRooms(){
     return ret.data;
 }
 
+async function doDeleteRooms(rno:any){
+
+    const ret = await axios.delete(url+"/manage/hallnew/",{
+        roomno: rno
+    })
+
+    if (ret.status == 200){
+        return 1;
+    }
+    return -1;
+}
+
 async function doPutRooms(rno:any,rooms:any){
 
     console.log(url+"/manage/hallnew")
@@ -35,4 +47,4 @@ async function doGetStudents(){
     return ret.data;
 }
 
-export {doPutRooms,doGetRooms,doGetStudents}
+export {doPutRooms,doGetRooms,doGetStudents, doDeleteRooms}

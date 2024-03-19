@@ -51,10 +51,10 @@ const HybridSeat = ({info}) => {
 
     if (info.length == 0){
         return(
-            <div className="flex flex-row justify-center border-2 border-zinc-950 p-2 h-30 w-200 ">
-                <button  style={{border: '1px solid black', padding: '10px', margin: '10px'}}>
-                            Available
-                        </button>
+            <div className=" flex justify-center border-2 border-zinc-950 p-2 h-30 w-200 ">
+                <p  style={{color:'black', padding: '10px', margin: '10px'}}>
+                        Empty Bench
+                        </p>
             </div>
         )
     }
