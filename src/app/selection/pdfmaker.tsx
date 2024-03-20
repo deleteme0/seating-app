@@ -87,7 +87,7 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
 
                         bench.forEach((seat)=>{
                             if (seat.dept == gdept){
-                                temp.push(seat.rollno)
+                                temp.push(parseInt(seat.rollno))
                             }
                         })
 
@@ -102,7 +102,9 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
                     // }
                     })
                 })
-                temp.sort();
+                temp.sort((a,b)=>a-b);
+                console.log("before proper")
+                console.log(temp)
                 if (temp.length != 0){
                     result.push({
                         roomno: String(each.roomno),

@@ -51,7 +51,7 @@ const HybridSeat = ({info}) => {
 
     if (info.length == 0){
         return(
-            <div className=" flex justify-center border-2 border-zinc-950 p-2 h-30 w-200 ">
+            <div style={{"display":"flex","padding":"0.5rem","justifyContent":"center","borderColor":"black","borderWidth":"2px"}} className=" flex justify-center border-2 border-zinc-950 p-2 h-30 w-200 ">
                 <p  style={{color:'black', padding: '10px', margin: '10px'}}>
                         Empty Bench
                         </p>
@@ -60,7 +60,7 @@ const HybridSeat = ({info}) => {
     }
 
     return(
-        <div className="  flex flex-row justify-center border-2 border-zinc-950 p-2 h-30 w-200  ">
+        <div style={{"display":"flex","padding":"0.5rem","flexDirection":"row","borderColor":"black","justifyContent":"center","borderWidth":"2px"}} className="  flex flex-row justify-center border-2 border-zinc-950 p-2 h-30 w-200  ">
             {
                 info.map((seat,i)=>{
                     return(
@@ -189,7 +189,7 @@ export default function DisplayRoom({rooms,activeRoom,setRooms}:{rooms:any,activ
     }
 
     return(
-        <div className={" flex flex-col align-middle border-collapse border-2 p-5 border-neutral-500 overflow-scroll "}>
+        <div id='root123'  style={{"display":"flex","overflow":"scroll","padding":"1.25rem","flexDirection":"column","borderWidth":"2px","verticalAlign":"middle","borderCollapse":"collapse"}} className={" flex flex-col align-middle border-collapse border-2 p-5 border-neutral-500 overflow-scroll "}>
             {rooms[activeRoom].benches.map((each:any,i:any)=>{
                 return(
                 // each.map((bench,j)=>{
@@ -206,7 +206,7 @@ export default function DisplayRoom({rooms,activeRoom,setRooms}:{rooms:any,activ
                 //     }
                 // })
                 
-                <div key={i+"rowboix"} className={`flex justify-center p-2 gap-3  `}>
+                <div key={i+"rowboix"} style={{"display":"flex","borderColor":"black","padding":"0.5rem","gap":"0.75rem","justifyContent":"center"}} className={`flex justify-center p-2 gap-3  `}>
                     {
                         each.map((bench,j)=>{
                             return(
@@ -226,8 +226,7 @@ export default function DisplayRoom({rooms,activeRoom,setRooms}:{rooms:any,activ
                 //     )
                 // }
             })}
-            <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"><a href="./modify">
-                Edit</a></button>
+           
         </div>
     )
 }

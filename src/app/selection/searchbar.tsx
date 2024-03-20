@@ -4,8 +4,12 @@ import './select.css';
 import './cssforshowroom.css';
 import './buttonEffect.css';
 import './checkboxLook.css';
+import { useState } from "react";
+import { skip } from "node:test";
 
 export default function SearchBar({setCount,setRooms,rooms,students,setStudents}:{setCount:any,setRooms:any,rooms:any,students:any,setStudents:any}) {
+
+    const [skipbench,setSkipBench] = useState(false);
 
     const handleClear = () =>{
 
@@ -50,7 +54,7 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
             if (ourRoom == -1){
                 return;
             }
-            ourRoom = autoAddEm(ourRoom,each,false);
+            ourRoom = autoAddEm(ourRoom,each,skipbench);
 
             
         })
@@ -137,6 +141,11 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
         className="bg-gradient-hover bg-gradient-move hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded transition duration-300 ease-in-out">
         Auto Arrange
     </button>
+</div>
+<div>
+    <label id="checkbench">
+    <input id="checkbench" type='checkbox' onClick={()=>{setSkipBench(!skipbench)}} />Skip Bench - {skipbench? "ENABLED" : "DISABLED"}
+    </label>
 </div>
             <div>
                 <button onClick={()=>{handleClear()}} 

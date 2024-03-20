@@ -114,7 +114,7 @@ function Room() {
                     // 'Content-Type': 'application/x-www-form-urlencoded',
                   },
                   body: JSON.stringify({
-                    dept:dept,
+                    dept:sem+dept,
                     rollnos:l
                   })
             })

@@ -126,7 +126,10 @@ export default function About() {
     const handleDelete = async() =>{
 
         async function dothat() {
+            console.log("delete "+rooms[activeRoom].roomno)
             await doDeleteRooms(rooms[activeRoom].roomno)
+            setActiveRoom(-1)
+            setCurr({benches:[],roomno:-1})
         }
 
         await dothat()
@@ -148,7 +151,6 @@ export default function About() {
 
     return (
         <div className=' flex flex-col align-middle text-center  text-green-500 '>
-here
                     <select onChange={handlechange} value={activeRoom}className="selections" name="selectedroom" id="roomselect">
                         <option value="-1" disabled hidden>--Select--</option>
                         {rooms.map(
@@ -179,7 +181,8 @@ here
         <button onClick={handleDelete}  hidden={currRoom.roomno == -1} className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
             Delete Room</button>
         </div>
-        {activeRoom}
+        <a className=" goSelect" href="../selection">Goto Selection</a>
+        
         </div>
   );
 }

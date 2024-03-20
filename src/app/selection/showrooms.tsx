@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import DisplayRoom from "./displayroom";
 import "./select.css"
+import ReactDOM from "react-dom";
+import jsPDF from "jspdf";
+//const fs = require('browserify-fs');
 
 
 export default function ShowRooms({rooms,setRooms}:{rooms:any,setRooms:any}) {
@@ -10,6 +13,26 @@ export default function ShowRooms({rooms,setRooms}:{rooms:any,setRooms:any}) {
     const handlechange = (event:any) =>{
         setActiveRoom(event.target.value)
     }
+
+    const reportTemplateRef = useRef(null);
+
+	const handleGeneratePdf = () => {
+		const doc = new jsPDF({
+			format: 'a4',
+			unit: 'px',
+		});
+
+		// Adding the fonts.
+		
+
+		doc.html(reportTemplateRef.current, {
+			async callback(doc) {
+				await doc.save('document');
+			},
+            width: 450,
+            windowWidth: 775
+		});
+	};
 
     return (
         <div style={{ background: 'white' }} className="flex flex-col">
@@ -25,7 +48,12 @@ export default function ShowRooms({rooms,setRooms}:{rooms:any,setRooms:any}) {
                     </select>
                 </p>
             </div>
-            <DisplayRoom rooms={rooms} activeRoom={activeRoom} setRooms={setRooms}></DisplayRoom>
+            <div ref={reportTemplateRef}>
+            <DisplayRoom  rooms={rooms} activeRoom={activeRoom} setRooms={setRooms}></DisplayRoom>
+            </div>
+            <button className="button" onClick={handleGeneratePdf}>
+				Generate PDF
+			</button>
         </div>
     );
     
