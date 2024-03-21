@@ -47,25 +47,36 @@ const SingleSeat = ({ info,selected,handle, ind, rooms, activeRoom }: { info:any
     );
 }
 
-const HybridSeat = ({info}) => {
+const Numba = ({i}) =>{
+
+    return (
+        <div style={{'position':'absolute',}}>
+            {i+1}
+        </div>
+    )
+}
+
+const HybridSeat = ({info,num}) => {
 
     if (info.length == 0){
         return(
             <div style={{"display":"flex","padding":"0.5rem","justifyContent":"center","borderColor":"black","borderWidth":"2px"}} className=" flex justify-center border-2 border-zinc-950 p-2 h-30 w-200 ">
+                <Numba i={num}/>
                 <p  style={{color:'black', padding: '10px', margin: '10px'}}>
-                        Empty Bench
+                        ************
                         </p>
             </div>
         )
     }
 
     return(
-        <div style={{"display":"flex","padding":"0.5rem","flexDirection":"row","borderColor":"black","justifyContent":"center","borderWidth":"2px"}} className="  flex flex-row justify-center border-2 border-zinc-950 p-2 h-30 w-200  ">
+        <div style={{'textAlign':'center','color':'black','fontSize':10,"display":"flex","padding":"0.5rem","flexDirection":"row","borderColor":"black","justifyContent":"center","borderWidth":"2px"}} className="  flex flex-row justify-center border-2 border-zinc-950 p-2 h-30 w-200  ">
+            <Numba i={num}/>
             {
                 info.map((seat,i)=>{
                     return(
                         <button key={i+seat.dept+seat.rollno} style={{border: '1px solid black', padding: '10px', margin: '10px',backgroundColor: seat.dept == ""? '#0ea5e9' : '#e11d48'}}>
-                            {seat.dept !== ""? seat.dept +" "+  seat.rollno : "Available"}
+                            {seat.dept !== ""? seat.rollno : "------------"}
                         </button>
                     )
                 })
@@ -210,7 +221,7 @@ export default function DisplayRoom({rooms,activeRoom,setRooms}:{rooms:any,activ
                     {
                         each.map((bench,j)=>{
                             return(
-                                <HybridSeat key={i+j+"hs"}info={bench} ></HybridSeat>
+                                <HybridSeat num={j*(rooms[activeRoom].benches.length)+i} key={i+j+"hs"}info={bench} ></HybridSeat>
                             )
                         })
                     }

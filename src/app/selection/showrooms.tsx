@@ -23,7 +23,8 @@ export default function ShowRooms({rooms,setRooms}:{rooms:any,setRooms:any}) {
 		});
 
 		// Adding the fonts.
-		
+        console.log(doc.getFontList())
+        doc.setFont('times','bold',50)
 
 		doc.html(reportTemplateRef.current, {
 			async callback(doc) {
