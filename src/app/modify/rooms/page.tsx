@@ -16,8 +16,103 @@ export default function About() {
         setActiveRoom(event.target.value)
     }
 
+    const local = true;
+
     useEffect(()=>{
         async function getRooms() {
+
+            if (local){
+                setRooms(
+                    [
+                        {
+                            roomno: 102,
+                            use: false,
+                            single:10,
+                            capacity:20,
+                            singletaken:4,
+                            doublefull:10,
+                            doublehalf:3,
+                            doubletaken:6,
+                            benches:[
+                                [[{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0}]],
+                                [[{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}]],
+                                [[{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}]]
+                            ]
+                        },
+                        {
+                            roomno: 105,
+                            use: false,
+                            single:10,
+                            capacity:20,
+                            singletaken:4,
+                            doublefull:10,
+                            doublehalf:3,
+                            doubletaken:6,
+                            benches:[
+                                [[{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0}]],
+                                [[{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}]],
+                                [[{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}]]
+                            ]
+                        },
+                        {
+                            roomno: 107,
+                            use: false,
+                            single:10,
+                            capacity:20,
+                            singletaken:4,
+                            doublefull:10,
+                            doublehalf:3,
+                            doubletaken:6,
+                            benches:[
+                                [[{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0}]],
+                                [[{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}]],
+                                [[{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}]]
+                            ]
+                        },
+                        {
+                            roomno: 108,
+                            use: false,
+                            capacity:20,
+                            single:10,
+                            singletaken:4,
+                            doublefull:10,
+                            doublehalf:3,
+                            doubletaken:6,
+                            benches:[
+                                [[{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0}]],
+                                [[{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}]],
+                                [[{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}],
+                                [{dept:"",rollno:"",selected:0},{dept:"",rollno:"",selected:0}]]
+                            ]
+                        },
+                        ]
+    
+                )
+                return;
+            }
             // let grooms = await fetch(process.env.NEXT_PUBLIC_API+'/manage/hallnew',{
             //     method:"GET"
             // })
@@ -118,8 +213,10 @@ export default function About() {
             return
         }
 
-        doPutRooms(myRoom.roomno,myRoom.benches);
-
+        if (!local){
+            doPutRooms(myRoom.roomno,myRoom.benches);
+        }
+        
 
     }
 

@@ -85,7 +85,7 @@ const HybridSeat = ({info,num}) => {
         </div>
     )
 }
-
+const ctr=0;
 const DoubleSeat = ({ handle, ind, rooms, activeRoom }: { handle: any, ind: any, rooms: any, activeRoom: any }) => {
     return (
         <div className="bench">
@@ -93,7 +93,7 @@ const DoubleSeat = ({ handle, ind, rooms, activeRoom }: { handle: any, ind: any,
                 {
                     rooms[activeRoom].benches[ind].slice(0, 1).map((each: any, index: number) => (
                         <div key={index+"ds1"} style={{ border: '1px solid black', padding: '10px', margin: '10px', backgroundColor: each.dept !== "" ? 'lightgrey' : 'white', width: '150px' }}>
-                            {each.dept !== "" ? `${each.dept} ${each.rollno}` : "Available"}
+                            {each.dept !== "" ? `${each.dept} {ctr} ${each.rollno}` : "Available"}
                         </div>
                     ))
                 }

@@ -11,9 +11,33 @@ export default function About() {
     const [students,setStudents] = useState([])
     const [activeStudent,setActive] = useState(-1)
 
+    const local = true;
+
     useEffect(()=>{
 
         async function doDat(){
+
+            if (local){
+                setStudents([
+                    {
+                        dept: "3CSE",
+                        use:false,
+                        rollnos: [1,2,3,4,5,6,7,8,9,10]
+                    },
+                    {
+                        dept: "3ECE",
+                        use:false,
+                        rollnos: [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
+                    },
+                    {
+                        dept: "3ADS",
+                        use:false,
+                        rollnos: [2,3,4,5,6,7,8,9,10]
+                    }
+                ]
+                )
+                return;
+            }
             const data1 = await doGetStudents();
 
             setStudents(data1)
