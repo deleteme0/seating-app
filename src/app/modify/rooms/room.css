@@ -1,0 +1,45 @@
+.container{
+    display: inline-table;
+    padding: 10px;
+    align-items: center;
+    text-align: center;
+    border: 1px solid hsl(0, 0%, 100%);
+}
+.container1{
+    display: flex;
+    display: inline-flexbox;
+    /* justify-content: center; */
+    justify-items: auto;
+    margin-left: 40px;
+    padding:5px;
+}
+
+.container3{
+    color: hsl(214, 82%, 67%);
+    background-color: whitesmoke;
+    width:fit-content;
+    width:150px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.change-button{
+    width: 100px;
+    text-align: center;
+    background-color:hsl(120,100%,75%);
+    color: black;
+}
+
+.room-allot{
+    text-align: center;
+    margin: 0%;
+    padding-top: 10%;
+}
+
+.button,.button1,.button2{
+    display: inline-block;
+    justify-content: space-between;
+    padding: 10px;
+}

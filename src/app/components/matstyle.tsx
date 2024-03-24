@@ -1,7 +1,7 @@
 
 
 export default function MatStyle({rooms,setRoom}){
-    var edit = false
+    var edit = true
     if (setRoom){
          edit = true;
     }else{

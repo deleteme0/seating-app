@@ -13,7 +13,7 @@ export default function Selection() {
     const [students,setStudents] = useState([])
     const [rooms,setRooms] = useState([])
 
-    const local = false;
+    const local = true;
     //const [students,setStudents] = useState([])
     //const [rooms,setRooms] = useState([])
 

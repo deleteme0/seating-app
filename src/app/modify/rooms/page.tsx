@@ -5,7 +5,7 @@ const axios = require('axios').default;
 import { doDeleteRooms, doGetRooms, doPutRooms } from '@/app/utililties/webutils';
 import createMat from '@/app/components/createmat';
 import { act } from 'react-dom/test-utils';
-
+import  "./room.css";
 export default function About() {
 
     const [rooms,setRooms] = useState([])
@@ -247,7 +247,8 @@ export default function About() {
     
 
     return (
-        <div className=' flex flex-col align-middle text-center  text-green-500 '>
+        <div className='room-allot'>
+        <div className=' flex flex-col align-middle text-center  text-green-500 container'>
                     <select onChange={handlechange} value={activeRoom}className="selections" name="selectedroom" id="roomselect">
                         <option value="-1" disabled hidden>--Select--</option>
                         {rooms.map(
@@ -260,26 +261,31 @@ export default function About() {
             {
             currRoom.benches.length > 0 &&
             currRoom.benches.map((row,i) =>(
-            <div key={"row"+i} className=" flex flex-row space-x-3  " ><div className=" " >{i+1}</div>
+            <div key={"row"+i} className=" flex flex-row space-x-4  container1" ><div className="container2" >{i+1}</div>
             {row.map((bench,j) =>(
-                <div key={"bench"+i+j} className="flex flex-row p-1 bg-gray-600 rounded space-x-1 border-rose-600  " > 
+                <div key={"bench"+i+j} className="flex flex-row p-1 bg-gray-500 rounded space-x-1 border-rose-600  container3" > 
                 
                 {bench.map((seat,k) =>(
-                    <button className="  " onClick={()=>{handleClick(i,j,k)}}  key={"thisis"+i+j+k} style={{backgroundColor: seat.selected == 0 ? "indianred" : "powderblue" }}>seat</button>
+                    <button className="change-button" onClick={()=>{handleClick(i,j,k)}}  key={"thisis"+i+j+k} style={{backgroundColor: seat.selected == 0 ? "" : "powderblue" }}>seat</button>
                 ))}
                 </div>
             ))}
             </div>
         ))
         }
-        <div>
+        <div className='button'>
+            <div className='button1'>
         <button onClick={handleSave} hidden={currRoom.roomno == -1} className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
             Save</button>
-        <button onClick={handleDelete}  hidden={currRoom.roomno == -1} className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-            Delete Room</button>
+            </div>
+            <div className='button2'><button onClick={handleDelete}  hidden={currRoom.roomno == -1} className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+            Delete Room</button></div>
         </div>
-        <a className=" goSelect" href="../selection">Goto Selection</a>
-        
+        <div>
+            <a className="goSelect" href="../selection">Goto Selection</a>
+        </div>
+        </div>
+
         </div>
   );
 }
