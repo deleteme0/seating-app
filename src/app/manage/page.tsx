@@ -58,25 +58,6 @@ function Room() {
             const ret = await doPutRooms(roomno,myRoom);
 
             
-
-            // const ret = await fetch(process.env.NEXT_PUBLIC_API+"/manage/hall",{
-            //     method:"POST",
-            //     headers: {
-            //         "Content-Type": "application/json",
-            //         // 'Content-Type': 'application/x-www-form-urlencoded',
-            //       },
-            //       body: JSON.stringify({
-            //         roomno:roomno,
-            //         single:ss,
-            //         double:ds
-            //       })
-            // })
-
-            // if (ret.status == 200){
-            //     alert("Added succesfully");
-            // }else{
-            //     alert("Alreasdy exists");
-            // }
         }
 
         addRoom();
@@ -108,8 +89,7 @@ function Room() {
             var ret = await fetch(process.env.NEXT_PUBLIC_API+'/manage/student',{
                 method:"POST",
                 headers: {
-                    "Content-Type": "application/json",
-                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                    "Content-Type": "application/json"
                   },
                   body: JSON.stringify({
                     dept:sem+dept,
