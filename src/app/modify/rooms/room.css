@@ -1,17 +1,10 @@
-.container{
-    display: inline-table;
-    padding: 10px;
-    align-items: center;
-    text-align: center;
-    border: 1px solid hsl(0, 0%, 100%);
-}
 .container1{
     display: flex;
     display: inline-flexbox;
-    /* justify-content: center; */
-    justify-items: auto;
-    margin-left: 40px;
+    justify-content: center;
     padding:5px;
+    text-align: center;
+
 }
 
 .container2{
@@ -30,7 +23,7 @@
 }
 
 .change-button{
-    width: 100px;
+    width: 150px;
     text-align: center;
     background-color:hsl(120,100%,75%);
     color: black;
@@ -40,10 +33,21 @@
     text-align: center;
     margin: 0%;
     padding-top: 10%;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
 .button,.button1,.button2{
     display: inline-block;
     justify-content: space-between;
     padding: 10px;
+}
+
+.container{
+    display: inline-table;
+    padding: 10px;
+    align-items: center;
+    text-align: center;
+    border: 1px solid hsl(0, 0%, 100%);
 }

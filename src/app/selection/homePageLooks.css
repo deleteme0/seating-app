@@ -17,3 +17,7 @@ body {
 .addDeptRoom{
     width: fit-content;
 }
+
+button{
+    width: max-content;
+}

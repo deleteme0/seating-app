@@ -16,7 +16,7 @@ export default function About() {
         setActiveRoom(event.target.value)
     }
 
-    const local = false;
+    const local = true;
 
     useEffect(()=>{
         async function getRooms() {

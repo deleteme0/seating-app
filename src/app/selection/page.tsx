@@ -167,8 +167,10 @@ export default function Selection() {
             <ShowRooms skipbench={skipbench} rooms={rooms} setRooms={setRooms}></ShowRooms>
             
             <PdfMaker rooms={rooms} students={students}></PdfMaker>
+            <div>
             <a className="addDeptRoom" href="./manage">Add depts or rooms</a>
             <a href='./modify' className='goSelect'>Edit</a>
+            </div>
         </div>
     );
 }
