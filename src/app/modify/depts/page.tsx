@@ -11,7 +11,7 @@ export default function About() {
     const [students,setStudents] = useState([])
     const [activeStudent,setActive] = useState(-1)
 
-    const local = true;
+    const local = false;
 
     useEffect(()=>{
 
