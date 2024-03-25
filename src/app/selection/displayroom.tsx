@@ -11,17 +11,6 @@ import { act } from "react-dom/test-utils";
 //    )
 //}
 
-const SeatButtom = ({handle,shade}:{handle:any,shade:any}) =>{
-
-    if (shade == 1){
-        return(
-            <button onClick={() => {handle}} className=" bg-blue-500 "></button>
-        )
-    }
-    return(
-        <button onClick={() => {handle}} className=" bg-lime-500 "></button>
-    )
-}
 
 const getStyle = (num:any) => {
     if (num == ""){
@@ -31,21 +20,6 @@ const getStyle = (num:any) => {
     }
 }
 
-const SingleSeat = ({ info,selected,handle, ind, rooms, activeRoom }: { info:any,selected:boolean,handle: any, ind: any, rooms: any, activeRoom: any }) => {
-    return (
-        <div className="bench">
-            <button onClick={() => { handle(ind) }} className={getStyle(rooms[activeRoom].benches[ind][0].dept)}>
-                {
-                    rooms[activeRoom].benches[ind].map((each: any, index: number) => (
-                        <div key={index+"ss"} style={{ border: '1px solid black', padding: '10px', margin: '10px', backgroundColor: each.dept !== "" ? 'lightgrey' : 'white', width: '150px' }}>
-                            {selected ? `${info}` : "Available"}
-                        </div>
-                    ))
-                }
-            </button>
-        </div>
-    );
-}
 
 const Numba = ({i}) =>{
 
@@ -60,9 +34,9 @@ const HybridSeat = ({skipbench,info,num}) => {
 
     if (info.length == 0){
         return(
-            <div style={{"display":"flex","padding":"0.5rem","justifyContent":"center","borderColor":"black","borderWidth":"2px"}} className=" flex justify-center border-2 border-zinc-950 p-2 h-30 w-200 ">
+            <div key={info+num} style={{"display":"flex","padding":"0.5rem","justifyContent":"center","borderColor":"black","borderWidth":"2px"}} className=" flex justify-center border-2 border-zinc-950 p-2 h-30 w-200 ">
                 <Numba i={num}/>
-                <p  style={{color:'black', padding: '10px', margin: '10px'}}>
+                <p key={info+num+"p"} style={{color:'black', padding: '10px', margin: '10px'}}>
                         ************
                         </p>
             </div>
@@ -87,31 +61,6 @@ const HybridSeat = ({skipbench,info,num}) => {
 }
         </div>
     )
-}
-const ctr=0;
-const DoubleSeat = ({ handle, ind, rooms, activeRoom }: { handle: any, ind: any, rooms: any, activeRoom: any }) => {
-    return (
-        <div className="bench">
-            <button onClick={() => { handle(ind, 0) }} className={getStyle(rooms[activeRoom].benches[ind][0].dept)}>
-                {
-                    rooms[activeRoom].benches[ind].slice(0, 1).map((each: any, index: number) => (
-                        <div key={index+"ds1"} style={{ border: '1px solid black', padding: '10px', margin: '10px', backgroundColor: each.dept !== "" ? 'lightgrey' : 'white', width: '150px' }}>
-                            {each.dept !== "" ? `${each.dept} {ctr} ${each.rollno}` : "Available"}
-                        </div>
-                    ))
-                }
-            </button>
-            <button onClick={() => { handle(ind, 1) }} className={getStyle(rooms[activeRoom].benches[ind][1].dept)}>
-                {
-                    rooms[activeRoom].benches[ind].slice(1, 2).map((each: any, index: number) => (
-                        <div key={index+"ds2"} style={{ border: '1px solid black', padding: '10px', margin: '10px', backgroundColor: each.dept !== "" ? 'lightgrey' : 'white', width: '150px' }}>
-                            {each.dept !== "" ? `${each.dept} ${each.rollno}` : "Available"}
-                        </div>
-                    ))
-                }
-            </button>
-        </div>
-    );
 }
 
 
@@ -164,37 +113,6 @@ const  DoubleSeat = ({handle,ind,rooms,activeRoom}:{handle:any,ind:any,rooms:any
 */
 
 export default function DisplayRoom({skipbench,rooms,activeRoom,setRooms}:{skipbench:any,rooms:any,activeRoom:any,setRooms:any}) {
-
-    const handleSingle = (ind:any) =>{
-        let newrooms = rooms.slice();
-        
-        if (newrooms[activeRoom].benches[ind][0].selected == 0){
-            newrooms[activeRoom].benches[ind][0].selected = 1;
-        }else if(newrooms[activeRoom].benches[ind][0].selected >= 1){
-            newrooms[activeRoom].benches[ind][0].selected = 0;
-        }
-
-        console.log(newrooms[activeRoom].benches[ind]);
-
-        
-        setRooms(newrooms);
-    }
-
-    const handleDouble = (ind:any,which:any) =>{
-
-        let newrooms = rooms.slice();
-
-        if (newrooms[activeRoom].benches[ind][which].selected == 0){
-            newrooms[activeRoom].benches[ind][which].selected = 1;
-        }else if(newrooms[activeRoom].benches[ind][which].selected >= 1){
-            newrooms[activeRoom].benches[ind][which].selected = 0;
-        }
-
-        console.log(newrooms[activeRoom].benches[ind]);
-        
-
-        setRooms(newrooms);
-    }
 
     if (activeRoom == "" || rooms[activeRoom].use == false){
         return (

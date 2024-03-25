@@ -104,8 +104,6 @@ function Room() {
             }
 
         })
-        console.log("l is")
-        console.log(l);
         async function addDept(){
             var ret = await fetch(process.env.NEXT_PUBLIC_API+'/manage/student',{
                 method:"POST",
