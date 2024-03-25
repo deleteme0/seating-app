@@ -106,7 +106,24 @@ export default function autoAddEm (rooms:any,students:any,skipbench:any) {
                     continue;
                 }
                 
-                room.benches[i][j].forEach((bench)=>{
+                room.benches[i][j].forEach((bench,i)=>{
+                    
+                    if (skipbench){
+                        if (i==0){
+                            if (myStudents.rollnos.length == 0){
+                                return;
+                            }
+        
+                            if (bench.dept == dept || bench.dept == ""){
+                                bench.dept = dept
+                                bench.rollno = myStudents.rollnos.shift();
+                                gotLast = true;
+                                gotthis = true
+                            }
+                        }else{
+                            return;
+                        }
+                    }
 
                     if (gotthis){
                         return;

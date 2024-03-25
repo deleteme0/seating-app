@@ -56,7 +56,7 @@ const Numba = ({i}) =>{
     )
 }
 
-const HybridSeat = ({info,num}) => {
+const HybridSeat = ({skipbench,info,num}) => {
 
     if (info.length == 0){
         return(
@@ -74,6 +74,9 @@ const HybridSeat = ({info,num}) => {
             <Numba i={num}/>
             {
                 info.map((seat,i)=>{
+                    if (skipbench && i!=0){
+                        return;
+                    }
                     return(
                         <button key={i+seat.dept+seat.rollno} style={{border: '1px solid black', padding: '10px', margin: '10px',backgroundColor: seat.dept == ""? '#0ea5e9' : '#e11d48'}}>
                             {seat.dept !== ""? seat.rollno : "------------"}
@@ -160,7 +163,7 @@ const  DoubleSeat = ({handle,ind,rooms,activeRoom}:{handle:any,ind:any,rooms:any
 }
 */
 
-export default function DisplayRoom({rooms,activeRoom,setRooms}:{rooms:any,activeRoom:any,setRooms:any}) {
+export default function DisplayRoom({skipbench,rooms,activeRoom,setRooms}:{skipbench:any,rooms:any,activeRoom:any,setRooms:any}) {
 
     const handleSingle = (ind:any) =>{
         let newrooms = rooms.slice();
@@ -221,7 +224,7 @@ export default function DisplayRoom({rooms,activeRoom,setRooms}:{rooms:any,activ
                     {
                         each.map((bench,j)=>{
                             return(
-                                <HybridSeat num={j*(rooms[activeRoom].benches.length)+i} key={i+j+"hs"}info={bench} ></HybridSeat>
+                                <HybridSeat skipbench={skipbench} num={j*(rooms[activeRoom].benches.length)+i} key={i+j+"hs"}info={bench} ></HybridSeat>
                             )
                         })
                     }
