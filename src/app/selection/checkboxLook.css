@@ -72,11 +72,11 @@ input[type="checkbox"].switcher::before {
 
 /* Styles for the checked state */
 input[type="checkbox"].switcher:checked::after {
-    background-image: linear-gradient(to right, #f0a0a0, #d395f4);
+    background-image: linear-gradient(to right, #04b934, #3933e3);
     transform: translateX(40px);
 }
 input[type="checkbox"].switcher:checked::before {
-    background-image: linear-gradient(to right, #f0a0a0, #d395f4);
+    background-image: linear-gradient(to right, #04b934,#04b934);
 }
 
 /* Styles for the disabled state */

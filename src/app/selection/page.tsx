@@ -160,15 +160,14 @@ export default function Selection() {
     //temp
 
     return (
-        <div className=" text-black flex flex-col ">
+        <div className=" text-black flex flex-col space-y-2 ">
             <SearchBar students={students} setStudents={setStudents} setCount={setCount} setRooms={setRooms} rooms={rooms}></SearchBar>
             
             <ShowRooms rooms={rooms} setRooms={setRooms}></ShowRooms>
             
             <PdfMaker rooms={rooms} students={students}></PdfMaker>
-            <a className="button addDeptRoom" href="./manage">Add depts or rooms</a>
-            <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"><a href="./modify">
-                Edit</a></button>
+            <a className="addDeptRoom" href="./manage">Add depts or rooms</a>
+            <a href='./modify' className='goSelect'>Edit</a>
         </div>
     );
 }

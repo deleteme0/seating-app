@@ -14,6 +14,10 @@
     padding:5px;
 }
 
+.container2{
+    text-align: center;
+}
+
 .container3{
     color: hsl(214, 82%, 67%);
     background-color: whitesmoke;
