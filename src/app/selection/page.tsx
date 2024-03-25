@@ -12,8 +12,9 @@ export default function Selection() {
     const [count,setCount] = useState(0)
     const [students,setStudents] = useState([])
     const [rooms,setRooms] = useState([])
+    const [skipbench,setSkipBench] = useState(false);
 
-    const local = true;
+    const local = false;
     //const [students,setStudents] = useState([])
     //const [rooms,setRooms] = useState([])
 
@@ -161,9 +162,9 @@ export default function Selection() {
 
     return (
         <div className=" text-black flex flex-col space-y-2 ">
-            <SearchBar students={students} setStudents={setStudents} setCount={setCount} setRooms={setRooms} rooms={rooms}></SearchBar>
+            <SearchBar skipbench={skipbench} setSkipBench={setSkipBench} students={students} setStudents={setStudents} setCount={setCount} setRooms={setRooms} rooms={rooms}></SearchBar>
             
-            <ShowRooms rooms={rooms} setRooms={setRooms}></ShowRooms>
+            <ShowRooms skipbench={skipbench} rooms={rooms} setRooms={setRooms}></ShowRooms>
             
             <PdfMaker rooms={rooms} students={students}></PdfMaker>
             <a className="addDeptRoom" href="./manage">Add depts or rooms</a>

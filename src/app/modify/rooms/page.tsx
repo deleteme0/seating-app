@@ -266,7 +266,7 @@ export default function About() {
                 <div key={"bench"+i+j} className="flex flex-row p-1 bg-gray-500 rounded space-x-1 border-rose-600  container3" > 
                 
                 {bench.map((seat,k) =>(
-                    <button className="change-button" onClick={()=>{handleClick(i,j,k)}}  key={"thisis"+i+j+k} style={{backgroundColor: seat.selected == 0 ? "" : "powderblue" }}>seat</button>
+                    <button className="change-button" onClick={()=>{handleClick(i,j,k)}}  key={"thisis"+i+j+k} style={{backgroundColor: seat.selected == 0 ? 'black' : 'lightgreen' }}>--0--</button>
                 ))}
                 </div>
             ))}

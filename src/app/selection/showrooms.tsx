@@ -6,7 +6,7 @@ import jsPDF from "jspdf";
 //const fs = require('browserify-fs');
 
 
-export default function ShowRooms({rooms,setRooms}:{rooms:any,setRooms:any}) {
+export default function ShowRooms({skipbench,rooms,setRooms}:{skipbench:any,rooms:any,setRooms:any}) {
 
     const [activeRoom,setActiveRoom] = useState("");
 
@@ -50,7 +50,7 @@ export default function ShowRooms({rooms,setRooms}:{rooms:any,setRooms:any}) {
                 </p>
             </div>
             <div ref={reportTemplateRef}>
-            <DisplayRoom  rooms={rooms} activeRoom={activeRoom} setRooms={setRooms}></DisplayRoom>
+            <DisplayRoom  skipbench={skipbench} rooms={rooms} activeRoom={activeRoom} setRooms={setRooms}></DisplayRoom>
             </div>
             <button className="button" onClick={handleGeneratePdf}>
 				Generate PDF

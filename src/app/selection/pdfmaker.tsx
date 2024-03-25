@@ -3,6 +3,7 @@ import { jsPDF } from 'jspdf';
 import { renderToString } from "react-dom/server";
 const gimg = require("./image.png");
 import "./select.css";
+import Maybe from './pdfv2';
 
 
 export default function PdfMaker({rooms,students}:{rooms: any,students:any}){

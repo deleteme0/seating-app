@@ -6,10 +6,13 @@ import './buttonEffect.css';
 import './checkboxLook.css';
 import { useState } from "react";
 import { skip } from "node:test";
+import Maybe from "./pdfv2";
 
-export default function SearchBar({setCount,setRooms,rooms,students,setStudents}:{setCount:any,setRooms:any,rooms:any,students:any,setStudents:any}) {
+export default function SearchBar({skipbench,setSkipBench,setCount,setRooms,rooms,students,setStudents}:{skipbench:any,setSkipBench:any,setCount:any,setRooms:any,rooms:any,students:any,setStudents:any}) {
 
-    const [skipbench,setSkipBench] = useState(false);
+    //const [skipbench,setSkipBench] = useState(false);
+    
+    const [arranged,setArranged] = useState(false);
 
     const handleClear = () =>{
 
@@ -25,7 +28,7 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
                 })
             })
         });
-
+        setArranged(false);
         setRooms(myrooms);
     }
 
@@ -67,6 +70,8 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
 
             setRooms(ourRoom);
         }
+
+        setArranged(true);
     }
 
     const handleRoomChange = ({rooms,i}:{rooms:any,i:any}) => {
@@ -144,13 +149,14 @@ export default function SearchBar({setCount,setRooms,rooms,students,setStudents}
 </div>
 <div>
     <label id="checkbench">
-    <input id="checkbench" type='checkbox' onClick={()=>{setSkipBench(!skipbench)}} />Skip Bench - {skipbench? "ENABLED" : "DISABLED"}
+    <input id="checkbench" type='checkbox' onClick={()=>{setSkipBench(!skipbench)}} />Skip Bench(SEM LIKE) - {skipbench? "ENABLED" : "DISABLED"}
     </label>
 </div>
             <div>
                 <button onClick={()=>{handleClear()}} 
                 className="bg-gradient-hover bg-gradient-move hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded transition duration-300 ease-in-out">Clear Seating</button>
             </div>
+
         </div>
     )
 }
