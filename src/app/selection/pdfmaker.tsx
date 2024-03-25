@@ -148,15 +148,6 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
         };
 
         return;
-
-        var img = new Image();
-        img.src = gimg;
-        console.log(img);
-        var ipp = "<img src=require('./image.png')></img>";
-        doc.addImage(img, 'PNG', 10, 10, 200, 50);
-        doc.text("DEPARTMENT: "+gdept.slice(1)+ "    YEAR: "+gdept.slice(0,1),1,7)
-        doc.table(1, 10, generateData(), headers, { autoSize: true });
-        doc.save("this.pdf")
     }
 
     const handlechange = (event) => {
