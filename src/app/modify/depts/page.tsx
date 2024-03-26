@@ -4,6 +4,7 @@ import { stringify } from 'querystring';
 import { useEffect, useState } from 'react';
 import { act } from 'react-dom/test-utils';
 const axios = require('axios').default;
+import './room.css'
 //import { useHistory } from 'react-router-dom'; // Assuming you are using React Router
 
 export default function About() {
@@ -67,8 +68,8 @@ export default function About() {
     }
 
     return (
-        <div className=' flex flex-col text-black bg-slate-50 align-middle text-center'>
-            this is depts
+        <div className='room-allot'>
+        <div className='flex flex-col text-blue-700 bg-slate-50 align-middle text-center container'>
             <select onChange={(event)=>{setActive(parseInt(event.target.value))}} value={activeStudent}className="selections" name="selectedroom" id="roomselect">
                         <option value="-1" disabled hidden>--Select--</option>
                         {students.map(
@@ -85,9 +86,14 @@ export default function About() {
                 
             }
             </p>
-            <button onClick={handleDelete}  hidden={activeStudent == -1} className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+            <div className=' p-3'>
+            <button onClick={handleDelete}  hidden={activeStudent == -1} className="bg-blue-500 p-4 hover:bg-blue-400 text-white font-bold py-3 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
             Delete Dept</button>
-            <a className=" bg-green-500 " href="../selection">Goto Selection</a>
+            </div>
+            <div className=' p-4'>
+            <a className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" href="../selection">Goto Selection</a>
+            </div>
+        </div>
         </div>
   );
 }
