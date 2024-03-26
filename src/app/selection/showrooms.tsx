@@ -32,15 +32,17 @@ export default function ShowRooms({skipbench,rooms,setRooms}:{skipbench:any,room
         img.onload = function() {
             doc.addImage(img, 'PNG', 0,0, 450, 50);
         }
+        
+        doc.text("Room no: " + rooms[activeRoom].roomno, 175, 80);
 
 		doc.html(reportTemplateRef.current, {
 			async callback(doc) {
 				await doc.save('document');
 			},
-            
-            y:60,
-            width: 450,
-            windowWidth: 775
+
+            y:100,
+            width: 448,
+            windowWidth: 900
 		});
 	};
 

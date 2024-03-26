@@ -45,7 +45,7 @@ const HybridSeat = ({skipbench,info,num}) => {
     }
 
     return(
-        <div style={{"display":"flex","padding":"0.25rem","marginTop":"1.25rem","flexDirection":"column","verticalAlign":"middle"}} className=" flex flex-col align-middle p-1 space-y-5 ">
+        <div style={{"display":"flex","marginTop":"1.25rem","flexDirection":"column","verticalAlign":"middle"}} className=" flex flex-col align-middle space-y-5 ">
             
             <Numba i ={num} />
             
