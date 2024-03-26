@@ -1,6 +1,7 @@
 "use client";
 
 import { Elsie_Swash_Caps } from "next/font/google";
+import { useState } from "react";
 import { act } from "react-dom/test-utils";
 
 //function SingleSeat({handle:any,ind:any,rooms:any}){
@@ -113,6 +114,8 @@ const  DoubleSeat = ({handle,ind,rooms,activeRoom}:{handle:any,ind:any,rooms:any
 */
 
 export default function DisplayRoom({skipbench,rooms,activeRoom,setRooms}:{skipbench:any,rooms:any,activeRoom:any,setRooms:any}) {
+
+    const [count,setCount] = useState(1);
 
     if (activeRoom == "" || rooms[activeRoom].use == false){
         return (

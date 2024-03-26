@@ -26,10 +26,19 @@ export default function ShowRooms({skipbench,rooms,setRooms}:{skipbench:any,room
         console.log(doc.getFontList())
         doc.setFont('times','bold',50)
 
+        var img = new Image();
+        img.src = '/image2.png';
+
+        img.onload = function() {
+            doc.addImage(img, 'PNG', 0,0, 450, 50);
+        }
+
 		doc.html(reportTemplateRef.current, {
 			async callback(doc) {
 				await doc.save('document');
 			},
+            
+            y:60,
             width: 450,
             windowWidth: 775
 		});
