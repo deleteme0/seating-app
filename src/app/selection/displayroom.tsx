@@ -25,7 +25,7 @@ const getStyle = (num:any) => {
 const Numba = ({i}) =>{
 
     return (
-        <div style={{'position':'absolute',}}>
+        <div style={{color:'black',fontSize: 13, position: 'absolute', padding: 5,  borderColor: 'black', borderWidth: 1, borderRadius: 50, width: 35 }}>
             {i+1}
         </div>
     )
@@ -35,18 +35,22 @@ const HybridSeat = ({skipbench,info,num}) => {
 
     if (info.length == 0){
         return(
-            <div key={info+num} style={{"display":"flex","padding":"0.5rem","justifyContent":"center","borderColor":"black","borderWidth":"2px"}} className=" flex justify-center border-2 border-zinc-950 p-2 h-30 w-200 ">
-                <Numba i={num}/>
+            <div key={info+num} style={{"display":"flex","padding":"0.5rem","flexDirection":"row","justifyContent":"center"}}   className="  flex flex-row justify-center  border-zinc-950 p-2 h-30 w-200  ">
+                {/* <Numba i={num}/>
                 <p key={info+num+"p"} style={{color:'black', padding: '10px', margin: '10px'}}>
-                        ************
-                        </p>
+                        
+                        </p> */}
             </div>
         )
     }
 
     return(
-        <div style={{'textAlign':'center','color':'black','fontSize':10,"display":"flex","padding":"0.5rem","flexDirection":"row","borderColor":"black","justifyContent":"center","borderWidth":"2px"}} className="  flex flex-row justify-center border-2 border-zinc-950 p-2 h-30 w-200  ">
-            <Numba i={num}/>
+        <div style={{"display":"flex","padding":"0.25rem","marginTop":"1.25rem","flexDirection":"column","verticalAlign":"middle"}} className=" flex flex-col align-middle p-1 space-y-5 ">
+            
+            <Numba i ={num} />
+            
+        <div style={{"display":"flex","padding":"0.5rem","flexDirection":"row","justifyContent":"center"}} className="  flex flex-row justify-center  border-zinc-950 p-2 h-30 w-200  ">
+            
             {
                 info.map((seat,i)=>{
                     if (skipbench && i!=0){
@@ -60,6 +64,7 @@ const HybridSeat = ({skipbench,info,num}) => {
                 })
             
 }
+        </div>
         </div>
     )
 }
@@ -124,7 +129,9 @@ export default function DisplayRoom({skipbench,rooms,activeRoom,setRooms}:{skipb
     }
 
     return(
-        <div id='root123'  style={{"display":"flex","overflow":"scroll","padding":"1.25rem","flexDirection":"column","borderWidth":"2px","verticalAlign":"middle","borderCollapse":"collapse"}} className={" flex flex-col align-middle border-collapse border-2 p-5 border-neutral-500 overflow-scroll "}>
+        <div id='root123' style={{"display":"flex","justifyContent":"center","alignContent":"center","verticalAlign":"middle"}} className={"flex align-middle content-center justify-center "}>
+            <table style={{"alignContent":"center","borderCollapse":"collapse","tableLayout":"fixed"}} className=' table-fixed border-collapse content-center '>
+            <tbody>
             {rooms[activeRoom].benches.map((each:any,i:any)=>{
                 return(
                 // each.map((bench,j)=>{
@@ -140,16 +147,20 @@ export default function DisplayRoom({skipbench,rooms,activeRoom,setRooms}:{skipb
                 //         )
                 //     }
                 // })
-                
-                <div key={i+"rowboix"} style={{"display":"flex","borderColor":"black","padding":"0.5rem","gap":"0.75rem","justifyContent":"center"}} className={`flex justify-center p-2 gap-3  `}>
+                <tr key={i+"rowboix"+"fdsaf"}>
+                {/* <div key={i+"rowboix"} style={{"display":"flex","borderColor":"black","padding":"0.5rem","gap":"0.75rem","justifyContent":"center"}} className={`flex justify-center p-2 gap-3  `}> */}
                     {
                         each.map((bench,j)=>{
                             return(
+                                <td style={{"borderWidth":"1px","borderColor":"#000000"}} className=" border border-black" key={i+j+"hsfdsa"}>
+                                    
                                 <HybridSeat skipbench={skipbench} num={j*(rooms[activeRoom].benches.length)+i} key={i+j+"hs"}info={bench} ></HybridSeat>
+                                </td>
                             )
                         })
                     }
-                </div>
+                {/* </div> */}
+                </tr>
                 )
                 // if (each.length == 1){
                 //     return(
@@ -161,7 +172,8 @@ export default function DisplayRoom({skipbench,rooms,activeRoom,setRooms}:{skipb
                 //     )
                 // }
             })}
-           
+            </tbody>
+           </table>
         </div>
     )
 }
