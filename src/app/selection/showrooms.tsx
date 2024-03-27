@@ -47,7 +47,7 @@ export default function ShowRooms({skipbench,rooms,setRooms}:{skipbench:any,room
 	};
 
     return (
-        <div style={{ background: 'white' }} className="flex flex-col">
+        <div style={{ background: 'white' }} className="flex  flex-col">
             <div className="bg-azure-500 grid grid-cols-5 space-x-4">
                 <p>Rooms:
                     <select onChange={handlechange} value={activeRoom}className="selections" name="selectedroom" id="roomselect">
@@ -63,9 +63,12 @@ export default function ShowRooms({skipbench,rooms,setRooms}:{skipbench:any,room
             <div ref={reportTemplateRef}>
             <DisplayRoom  skipbench={skipbench} rooms={rooms} activeRoom={activeRoom} setRooms={setRooms}></DisplayRoom>
             </div>
-            <button className="button" onClick={handleGeneratePdf}>
-				Generate PDF
-			</button>
+            <div style={{ textAlign: 'center' }}>
+    <button className="PDFbutton" onClick={handleGeneratePdf}>
+        Generate PDF
+    </button>
+</div>
+
         </div>
     );
     

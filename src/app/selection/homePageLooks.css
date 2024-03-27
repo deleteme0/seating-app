@@ -1,9 +1,7 @@
 body {
     background-color: white;
     text-align: center;
-    margin: 0; /* Reset default body margin */
-    padding: 0; /* Reset default body padding */
-    background-image: linear-gradient(to right, #1d0374, #4a0071);
+    background-image: linear-gradient(to right, #a7c01a, #4a0071);
 }
 
 .addDeptRoom{

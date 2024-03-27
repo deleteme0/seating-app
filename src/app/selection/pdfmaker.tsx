@@ -158,17 +158,12 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
     //console.log(students)
     
     return (
-        <div className='bg-slate-500'>
+        <div className='bg-white HorizontalLinerDiv'>
             {/* <div className=' text-center '>
             <button onClick={handleDownload} hidden={gdept==null} className=" down-button">Download</button>
             </div> */}
-            <div className="text-center">
-            <button onClick={handleDownload} hidden={gdept==null} className="text-center align-middle bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center ">
-                <svg className=" text-center fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
-                    Download
-            </button>
-            </div>
-            <div className=" bg-azure-500 grid grid-cols-5 space-y-5 space-x-4 border-spacing-5">
+            
+            <div className="bg-azure-500 grid grid-cols-5 justify-items-center space-y-5 space-x-4 border-spacing-5 content-center dropMenu">
             <p>select Dept :
                 <select value={gdept} onChange={handlechange} className="DownloadSelections" name="selectedDownload" id="room">
                 <option value="" disabled hidden>--Select--</option>
@@ -183,6 +178,12 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
                 </select>
                 </p>
                 </div>
+                <div className="text-center">
+            <button onClick={handleDownload} hidden={gdept==null} className="text-center align-middle bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center ">
+                <svg className=" text-center fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+                    Download
+            </button>
+            </div>
         </div>
         
         )

@@ -69,6 +69,23 @@
     color: whitesmoke;
     background-color: #6daaec;
   }
+.HorizontalLinerDiv{
+    display: flex;
+    flex-direction: column;
+
+}
+.dropMenu{
+    border-radius: 10px;
+}
+.PDFbutton{
+    background-color: aliceblue;
+    color: rgb(117, 163, 232);
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 10px;
+}
+
 
 .button{
     background-color: aliceblue;
