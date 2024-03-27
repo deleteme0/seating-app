@@ -145,7 +145,7 @@ export default function PdfMaker({rooms,students}:{rooms: any,students:any}){
             doc.addImage(img, 'PNG', 10, 10, 200, 50);
             doc.text("DEPARTMENT: " + gdept.slice(1) + "    YEAR: " + gdept.slice(0, 1), 65, 70);
             doc.table(80, 80, generateData(), headers, {autoSize: true});
-            doc.save("this.pdf");
+            doc.output('dataurlnewwindow');
         };
 
         return;

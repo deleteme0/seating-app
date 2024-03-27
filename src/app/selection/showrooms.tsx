@@ -37,7 +37,7 @@ export default function ShowRooms({skipbench,rooms,setRooms}:{skipbench:any,room
 
 		doc.html(reportTemplateRef.current, {
 			async callback(doc) {
-				await doc.save('document');
+				await doc.output('dataurlnewwindow');
 			},
 
             y:100,
