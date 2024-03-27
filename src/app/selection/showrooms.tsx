@@ -64,9 +64,11 @@ export default function ShowRooms({skipbench,rooms,setRooms}:{skipbench:any,room
             <DisplayRoom  skipbench={skipbench} rooms={rooms} activeRoom={activeRoom} setRooms={setRooms}></DisplayRoom>
             </div>
             <div style={{ textAlign: 'center' }}>
+    <div className="py-2">
     <button className="PDFbutton" onClick={handleGeneratePdf}>
         Generate PDF
     </button>
+    </div>
 </div>
 
         </div>

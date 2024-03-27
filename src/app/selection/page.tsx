@@ -161,14 +161,14 @@ export default function Selection() {
     //temp
 
     return (
-        <div className=" text-black flex flex-col space-y-2 ">
+        <div className=" text-black flex flex-col space-y-2 bg-cyan-50">
             <SearchBar skipbench={skipbench} setSkipBench={setSkipBench} students={students} setStudents={setStudents} setCount={setCount} setRooms={setRooms} rooms={rooms}></SearchBar>
             
             <ShowRooms skipbench={skipbench} rooms={rooms} setRooms={setRooms}></ShowRooms>
             
             <PdfMaker rooms={rooms} students={students}></PdfMaker>
-            <div>
-            <a className="addDeptRoom" href="./manage">Add depts or rooms</a>
+            <div className='p-2'>
+            <a className="addDept" href="./manage">Add depts or rooms</a>
             <a href='./modify' className='goSelect'>Edit</a>
             </div>
         </div>
