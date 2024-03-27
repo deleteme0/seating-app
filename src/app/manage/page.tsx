@@ -40,6 +40,8 @@ function Room() {
             //Remove unselected area
             var myRoom = room.slice();
 
+            var inRooms = roomno.slice().split(',');
+
             for(var i =0;i<myRoom.length;i++){
                 for(var j=0;j<myRoom[i].length;j++){
                     // var cnt = 0;
@@ -55,7 +57,11 @@ function Room() {
 
             console.log(myRoom)
 
-            const ret = await doPutRooms(roomno,myRoom);
+            inRooms.forEach(async(currroom)=>{
+                const ret = await doPutRooms(roomno,myRoom);
+
+            })
+
 
             
         }
