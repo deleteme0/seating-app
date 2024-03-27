@@ -78,15 +78,23 @@
     border-radius: 10px;
 }
 .PDFbutton{
-    background-color: aliceblue;
-    color: rgb(117, 163, 232);
+    color: black;
     padding: 10px;
-    font-size: 20px;
-    font-weight: 500;
-    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 5px;
+    background-color:#d1d5db;
+}
+.PDFbutton:hover{
+    background-color: #9ca3af;
+    color: #1f2937;
 }
 
-
+.designLinear{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+}
 .button{
     background-color: aliceblue;
     color: rgb(117, 163, 232);

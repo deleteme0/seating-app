@@ -16,8 +16,10 @@ body {
     width: fit-content;
 }
 .addDept{
-    background-color: #06b6d4;
-    border-radius: 10px;
+    background-color: #a5b4fc;
+    color: #1d0374;
+    font-weight: 550;
+    border-radius: 5px;
     padding: 10px;
 }
 

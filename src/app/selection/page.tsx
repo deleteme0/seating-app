@@ -167,7 +167,7 @@ export default function Selection() {
             <ShowRooms skipbench={skipbench} rooms={rooms} setRooms={setRooms}></ShowRooms>
             
             <PdfMaker rooms={rooms} students={students}></PdfMaker>
-            <div className='p-2'>
+            <div className='p-2 designLinear'>
             <a className="addDept" href="./manage">Add depts or rooms</a>
             <a href='./modify' className='goSelect'>Edit</a>
             </div>
